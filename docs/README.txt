@@ -1,7 +1,7 @@
 LORDBOUND FIXES  -  personal patch for Lordbound 0.8.1 (Nexus 160493)
 =====================================================================
 Files: Lordbound Fixes.esp (ESL-flagged, master: Druadach.esm), 5 patched scripts in scripts\,
-and 251 textures copied from your other MO2 mods into textures\.
+and 251 textures copied from your other MO2 mods + 164 from your Downloads archives into textures\.
 The _work folder is my analysis workspace. The game ignores it; leave it or hide it in MO2.
 
 INSTALL
@@ -45,8 +45,9 @@ WHAT IS FIXED (cause found in the data before changing anything)
 - Tour of Duty: M'zaad's tracking spell property filled so it is removed afterwards.
 - Models that pointed at files Lordbound never shipped (red "!" in game), repointed to an existing
   model: Ashlorn rib-cap pieces, a blue crystal in Ysgramor's Folly (typo'd path), a Highrock Stop
-  roof, Aedron's armor spaulders on female characters, the Barbarian Orcish cuirass in first
-  person, and the Liquor of Rooting bottle. 3 more missing models were copied from your other mods.
+  roof, Aedron's armor spaulders on female characters, and the Liquor of Rooting bottle. 9 more missing
+  models were copied from your other mods and Downloads (incl. the Barbarian Orcish cuirass
+  first-person model and the Cyrodiilic Silver dagger and shortsword).
 - Enigmatic Origins: the Jagged Crown on the throne skeleton in the Revenant's Highreach was real
   loose loot; it is now a static decoration with the same model.
 - Door landing spots: Garshakur Tailor exit and Putrid Cove Retreat entrance.

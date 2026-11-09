@@ -1,21 +1,12 @@
-Textures that Lordbound meshes ask for but that are in neither Lordbound, the base game/DLC, nor any of your MO2 mods.
+Textures that Lordbound meshes ask for but that are in neither Lordbound, the base game/DLC, your MO2 mods, nor your Downloads.
 Only objects Lordbound actually uses are listed. A missing main texture shows purple; a missing _n/_m/_g/_e map only makes it look flatter.
 
 PURPLE   ACTI DRVC_DefaultAshPileGold "Gold Ash Pile"  missing: textures\effects\gradients\drvc_gradgolddisguiseshader01.dds
 PURPLE   ALCH DRV_StonebarkAttractiveAleBrew "Stonebark Attractive Ale"  missing: textures\clutter\drv_stonebark\drv_beastmodebrew_alpha.dds
-PURPLE   ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\extras\frostatronachinner.dds
-PURPLE   ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\extras\icecavesubsurfacetint02.dds
 PURPLE   ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\extras\indrikgloam.dds
 PURPLE   ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\mounts\saddlegloam.dds
-PURPLE   ARTO DrV_indrick_summonindrik_hands ""  missing: textures\effects\gradients\summonnature.dds
-PURPLE   ARTO DrV_indrick_summonindrik_hands ""  missing: textures\effects\gradients\summonnaturebright.dds
 PURPLE   EXPL DD_RevenantAreaExplosion ""  missing: textures\effects\gradients\gradgreenbright.dds
 PURPLE   EXPL DRVC_RestorationMassExplosion ""  missing: textures\effects\gradients\gradturnundead.dds
-PURPLE   INGR DrV_Indrik_Loot_Feathers "Indrik Feathers"  missing: textures\actors\drv_indriks\extras\frostatronachinner.dds
-PURPLE   INGR DrV_Indrik_Loot_Feathers "Indrik Feathers"  missing: textures\actors\drv_indriks\extras\icecavesubsurfacetint02.dds
-PURPLE   INGR DrV_Indrik_Loot_Feathers "Indrik Feathers"  missing: textures\actors\drv_indriks\magic\loot\loot.dds
-PURPLE   INGR DrV_Indrik_Loot_Sap "Indrik Ooze"  missing: textures\actors\drv_indriks\magic\loot\bowl.dds
-PURPLE   INGR DrV_Indrik_Loot_Sap "Indrik Ooze"  missing: textures\actors\drv_indriks\magic\loot\ectoplasm01.dds
 PURPLE   MISC DrV_BearDruadachPelt "Druadach Bear Pelt"  missing: textures\actors\bear\bear_sk_polar.dds
 PURPLE   PROJ DRVC_FireConMassiveAim ""  missing: textures\effects\poisionswirls3.dds
 PURPLE   STAT DD_LBMQ10EmpyreanOrb_Blue_Static ""  missing: textures\clutter\empyreanorbs\sigilstone_iceblue.dds
@@ -28,7 +19,6 @@ map only ACTI DrV_DecoNobleWardrobeCleaning01 "Wardrobe"  missing: textures\clut
 map only ACTI DrV_DecoNobleWardrobeCleaning02 "Wardrobe"  missing: textures\clutter\common\rug03_n.dds
 map only ARMA DrV_ArgentArmorAA ""  missing: textures\armor\drv_battlemage\drv_battlemage_torso_m.dds
 map only ARMA DrV_DwemerColossusAA ""  missing: textures\actors\drv_dwemercolossus\dwarvenspidercenturion_g.dds
-map only ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\indrik_n.dds
 map only ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\mounts\saddle_n.dds
 map only ARMA DrV_OrcishEliteCuirassBlueAA ""  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
 map only ARMA DrV_OrcishEliteCuirassRedAA ""  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
@@ -52,11 +42,6 @@ map only CONT DrV_StrongBoxMage04_NoRespawn "Keepsake Box"  missing: textures\fu
 map only CONT DrV_StrongBoxMage_Roggvar "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
 map only FURN DrV_CraftingRockSmelter "Smelter"  missing: textures\clutter\renthal311\stone01_n.dds
 map only FURN DrV_OutpostBedDoublePurple "Bed"  missing: textures\clutter\citybannerriften01_n.dds
-map only INGR DrV_Indrik_Loot_Feathers "Indrik Feathers"  missing: textures\actors\drv_indriks\magic\loot\loot_n.dds
-map only INGR DrV_Indrik_Loot_Sap "Indrik Ooze"  missing: textures\actors\drv_indriks\magic\loot\bowl_g.dds
-map only INGR DrV_Indrik_Loot_Sap "Indrik Ooze"  missing: textures\actors\drv_indriks\magic\loot\bowl_n.dds
-map only INGR DrV_Indrik_Loot_Sap "Indrik Ooze"  missing: textures\actors\drv_indriks\magic\loot\ectoplasm01_g.dds
-map only INGR DrV_Indrik_Loot_Sap "Indrik Ooze"  missing: textures\actors\drv_indriks\magic\loot\ectoplasm01_n.dds
 map only MISC DD_LBMQ09_MantellaFragment01 "Giant Emerald Fragment"  missing: textures\cubemaps\portalwaterfalls01_e.dds
 map only STAT DRV_ImpFreeDoor01_Highreach ""  missing: textures\kv\lordbound\highreach\kv_implroomwall01_9_n.dds
 map only STAT DRV_ImpLHall4Way01 ""  missing: textures\kv\lordbound\highreach\kv_implroomwall01_9_n.dds
@@ -84,7 +69,42 @@ map only TREE DrV_DeadScotsPine4Snow ""  missing: textures\landscape\trees\vurt_
 map only TREE DrV_DeadScotsPine5Snow ""  missing: textures\landscape\trees\vurt_coniferbranch001_n.dds
 map only TREE DrV_wrtempletree01snow ""  missing: textures\landscape\trees\cyrodilbark01_n.dds
 
-Copied into Lordbound Fixes from your other mods (251 files):
+Models still missing everywhere (30):
+   meshes\actors\drv_empyreanskeleton\akaviri-skeleton-1.nif
+   meshes\actors\drv_indriks\magic\fire\fx.nif
+   meshes\actors\drv_indriks\magic\frost\explosionfrost01.nif
+   meshes\actors\drv_spriggancorrupted\drv_spriggancorrupted.nif
+   meshes\architecture\drv_breton_highreach\sblacksmith1gkb.nif
+   meshes\architecture\drv_breton_highreach\sblacksmith2gkb.nif
+   meshes\architecture\drv_breton_highreach\svittoriavicihousegkb.nif
+   meshes\architecture\drv_frostford\snow\behindtheinnhousesnowheavy.nif
+   meshes\architecture\drv_garshakur\interior\drv_gkintwoodroofcutback01_gkwoodnif.nif
+   meshes\architecture\drv_garshakur\interior\drv_gkintwoodroofcutback01_orcish.nif
+   meshes\architecture\drv_highreach\drv_highreachwalloffset01.nif
+   meshes\architecture\drv_highreach\drv_highreachwallstraight01.nif
+   meshes\architecture\riften\drv_rtmarketstallhighreach01.nif
+   meshes\architecture\riften\drv_rtmarketstallhighreach02.nif
+   meshes\architecture\riften\drv_rtmarketstallhighreach03.nif
+   meshes\architecture\whiterun\wrinteriors\wrcastle\drv_wrintdragonroomribcap01.nif
+   meshes\armor\ebony\f\lautasantenni_spaulders2_1.nif
+   meshes\clutter\bones\drv_humanclavicleleft_08.nif
+   meshes\clutter\bones\drv_humanclavicleright_02.nif
+   meshes\clutter\bones\drv_humanshoulderleft_03.nif
+   meshes\clutter\bones\drv_humanshoulderright_03.nif
+   meshes\clutter\bones\drv_humanskulljaw_16.nif
+   meshes\clutter\drv_mcguffin\drv_mcguffin6.nif
+   meshes\clutter\drv_stonebark\drv_beastmodebrew03.nif
+   meshes\clutter\soulgem\meshes\clutter\soulgem\soulgemgreater01.nif
+   meshes\effects\dd_lbmq10empyreanbarrier.nif
+   meshes\landscape\grass\reachbush01.nif
+   meshes\landscape\trees\oldpineforest07vu1.nif
+   meshes\shadertests\algaeshader.nif
+   meshes\weapons\boundweapons\drv_revenantswordencheffectsshadow.nif
+
+Copied into Lordbound Fixes from your MO2 mods (254 files):
+meshes\apocnew\restorationpeace_art_wildhealing.nif <= Apocalypse - Magic of Skyrim
+meshes\apocnew\restorationpeace_hands.nif <= Apocalypse - Magic of Skyrim
+meshes\landscape\grass\waterkelptall03.nif <= Depths of Skyrim - An Underwater Overhaul SSE
 textures\!_rudy_misc\effects\fxglowenb.dds  <=  Praedy's Staves AIO - SE (loose)
 textures\aars\openbook\largebookpaper02.dds  <=  Distinct Interiors (loose)
 textures\aars\openbook\largebookpaper03.dds  <=  Distinct Interiors (loose)
@@ -336,3 +356,175 @@ textures\stroti\newcastle\wood\plank01.dds  <=  Beyond Reach (loose)
 textures\stroti\newcastle\wood\plank01_n.dds  <=  Beyond Reach (loose)
 textures\stroti\newcastle\wood\wall01.dds  <=  Beyond Reach (loose)
 textures\stroti\newcastle\wood\wall01_n.dds  <=  Beyond Reach (loose)
+
+Copied into Lordbound Fixes from archives in C:\Users\tony.TONYCUBED\Downloads (170 files):
+meshes\armor_replacer\orc\1stpersonarmorberserklightf_1.nif  <=  NordWarUA's Race Armor Expansion - CCOR-34585-1-0-1590311754.7z
+meshes\armor_replacer\orc\1stpersonarmorberserklightm_1.nif  <=  NordWarUA's Race Armor Expansion - CCOR-34585-1-0-1590311754.7z
+meshes\elvar\weapons\third era\cyrodiil\silver\1stpersondagger.nif  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
+meshes\elvar\weapons\third era\cyrodiil\silver\1stpersonshortsword.nif  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
+meshes\elvar\weapons\third era\cyrodiil\silver\dagger.nif  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
+meshes\elvar\weapons\third era\cyrodiil\silver\shortsword.nif  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
+textures\aars\openbook\largebookpaper06.dds  <=  Lakeview Manor Evolution - Source Files-41645-1-0.zip
+textures\aars\openbook\largebookpaper07.dds  <=  Lakeview Manor Evolution - Source Files-41645-1-0.zip
+textures\aars\openbook\largebookpaper08.dds  <=  Lakeview Manor Evolution - Source Files-41645-1-0.zip
+textures\aars\openbook\largebookpaper09.dds  <=  Lakeview Manor Evolution - Source Files-41645-1-0.zip
+textures\aars\openbook\largebookpaper12.dds  <=  Lakeview Manor Evolution - Source Files-41645-1-0.zip
+textures\aars\openbook\largebookpaper13.dds  <=  Lakeview Manor Evolution - Source Files-41645-1-0.zip
+textures\actors\drv_indriks\extras\frostatronachinner.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/extras/frostatronachinner.dds)
+textures\actors\drv_indriks\extras\icecavesubsurfacetint02.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/extras/icecavesubsurfacetint02.dds)
+textures\actors\drv_indriks\extras\indrikiceyellow.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/extras/indrikiceyellow.dds)
+textures\actors\drv_indriks\indrik.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/indrik.dds)
+textures\actors\drv_indriks\indrik_n.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/indrik_n.dds)
+textures\actors\drv_indriks\magic\loot\bowl.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/magic/loot/bowl.dds)
+textures\actors\drv_indriks\magic\loot\bowl_g.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/magic/loot/bowl_g.dds)
+textures\actors\drv_indriks\magic\loot\bowl_n.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/magic/loot/bowl_n.dds)
+textures\actors\drv_indriks\magic\loot\ectoplasm01.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/magic/loot/ectoplasm01.dds)
+textures\actors\drv_indriks\magic\loot\ectoplasm01_g.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/magic/loot/ectoplasm01_g.dds)
+textures\actors\drv_indriks\magic\loot\ectoplasm01_n.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/magic/loot/ectoplasm01_n.dds)
+textures\actors\drv_indriks\magic\loot\loot.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/magic/loot/loot.dds)
+textures\actors\drv_indriks\magic\loot\loot_n.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/magic/loot/loot_n.dds)
+textures\actors\drv_indriks\magic\patronum\indrik.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/magic/patronum/indrik.dds)
+textures\clutter\bretonvase\vase.dds  <=  Breton Vases-82985-1-0.zip
+textures\clutter\bretonvase\vase2.dds  <=  Breton Vases-82985-1-0.zip
+textures\clutter\bretonvase\vase_n.dds  <=  Breton Vases-82985-1-0.zip
+textures\clutter\kelretu\flowerpot\flower01.dds  <=  Flower Pack 01-82985-1-0-1623497723.zip
+textures\clutter\kelretu\flowerpot\flower01_n.dds  <=  Flower Pack 01-82985-1-0-1623497723.zip
+textures\clutter\kelretu\flowerpot\pot01.dds  <=  Flower Pack 01-82985-1-0-1623497723.zip
+textures\clutter\kelretu\flowerpot\pot01_n.dds  <=  Flower Pack 01-82985-1-0-1623497723.zip
+textures\effects\gradients\summonnature.dds  <=  Guardian Spectres (SE-AE) 1.2-30772-1-2-1671828296.rar
+textures\effects\gradients\summonnaturebright.dds  <=  Guardian Spectres (SE-AE) 1.2-30772-1-2-1671828296.rar
+textures\effects\gradients\summonundeadnirn.dds  <=  Guardian Spectres (SE-AE) 1.2-30772-1-2-1671828296.rar
+textures\effects\gradients\summonundeadnirnbright.dds  <=  Guardian Spectres (SE-AE) 1.2-30772-1-2-1671828296.rar
+textures\elvar\weapons\third era\cyrodiil\silver\silverdagger_d.dds  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
+textures\elvar\weapons\third era\cyrodiil\silver\silverdagger_m.dds  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
+textures\elvar\weapons\third era\cyrodiil\silver\silverdagger_n.dds  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
+textures\elvar\weapons\third era\cyrodiil\silver\silvershortsword_d.dds  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
+textures\elvar\weapons\third era\cyrodiil\silver\silvershortsword_m.dds  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
+textures\elvar\weapons\third era\cyrodiil\silver\silvershortsword_n.dds  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
+textures\estroyaresources\magesigil.dds  <=  Furniture Pack-89291-1-0.zip
+textures\furniture\bretonroyal\bretonroyal01.dds  <=  Breton Royal Furniture 02-82985-1-1-1709385918.zip
+textures\furniture\bretonroyal\bretonroyal01_em.dds  <=  Breton Royal Furniture 02-82985-1-1-1709385918.zip
+textures\furniture\bretonroyal\bretonroyal01_n.dds  <=  Breton Royal Furniture 02-82985-1-1-1709385918.zip
+textures\lor\custom\bnw\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_a.xbm.(647).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\bnw\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_a_n.xbm.(648).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\bnw\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_b.xbm.(649).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\bnw\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_b_n.xbm.(650).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\bnw\dlc#bob#data#environment#textures#wood#bob_rich_wood_int_01.xbm.(1723).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\bnw\dlc#bob#data#environment#textures#wood#bob_rich_wood_int_01_n.xbm.(1724).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\carpets & pillow\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_curtains_a.xbm.(2185).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\carpets & pillow\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_curtains_a_n.xbm.(2186).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\carpets & pillow\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_curtains_b.xbm.(2187).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\carpets & pillow\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_curtains_b_n.xbm.(2188).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\wood\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_a.xbm.(647).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\wood\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_a_n.xbm.(648).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\wood\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_b.xbm.(649).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\wood\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_b_n.xbm.(650).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\wood\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_c.xbm.(651).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\wood\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_c_n.xbm.(652).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\wood\environment#textures_tileable#wood#rich_wood_indoor_flat_n.xbm.(677).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\custom\wood\environment#textures_tileable#wood#rich_wood_outdoor_flat.xbm.(7).dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\centauro_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\centauro_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\em7160n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\em7160s.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\ercule_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\ercule_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\faunfountain_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\faunfountain_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\lampost_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\lampost_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\model_0.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\model_0n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\moses_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\moses_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\rilievo_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\tritone1_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\tritone2_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\uh7160n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\scans\uh7160s.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\tents\tent_aedirn_01_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\tents\tent_hen_01_n_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\tents\tent_temer_01_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\tents\tent_temer_02_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\tents\tent_temer_03_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_red04_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_red04_n_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_red05_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_red05_n_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_red06_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_red06_n_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_red07_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_red07_n_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_red_pillar_01_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_red_pillar_01_n_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_redbricks02_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_redbricks02_n_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\dragon_redbricks04_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\tit\dragon_red_floor_01_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\tit\dragon_red_floor_01_n_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\tit\dragon_redbricks03_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\tit\dragon_redbricks_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\architecture\vran\tit\dragon_redbricks_n_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\bookstands\ob_bookstand01_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\bookstands\ob_bookstand01_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\bookstands\ob_bookstand04_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\bookstands\ob_bookstand04_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\bookstands\ob_cabmaps01_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\bookstands\ob_cabmaps01_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\furniture\ob_arterybed_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\furniture\ob_arterybed_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\furniture\ob_cupboard01_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\furniture\ob_cupboard01_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\furniture\ob_deskrich01_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\furniture\ob_deskrich01_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\furniture\ob_rocker01_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\furniture\ob_rocker01_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\furniture\table03_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\furniture\table03_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\furniture\tall_chair_d.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\furniture\tall_chair_n.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\various\carpet01_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\lor\the witcher 2\various\carpet01_n_dxt1.dds  <=  Lor Modders' Resource-84433-1-0.rar
+textures\mb\glas\glass03.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\glas\glass03_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\inva\arras01.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\inva\arras01_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\inva\arras02.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\inva\arras02_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\inva\carpwall02.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\inva\carpwall02_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\kanone\black.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\kanone\black_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\kanone\iron05.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\kanone\iron05_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\plants\ewplake10.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\plants\kahl lod_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\plants\lily1.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\plants\lily2.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\putz\plast10.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\putz\plast10_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\putz\plast11.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\putz\plast11_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\stonewall\chodnik02.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\stonewall\chodnik02_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\witch\alchem01.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\witch\alchem01_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\witch\kafle05l.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\witch\kafle05l_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\witch\karscia06.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\witch\karscia06_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\witch\karscia07.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\witch\karscia07_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\wood\mbbrownpank01.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\wood\mbbrownpank01_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\wood\mbwooddark1.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\wood\mbwooddark1_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\wood\mbwoodfloorint01.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\wood\mbwoodfloorint01_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\wood\mbwoodmoulding01a.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\mb\wood\mbwoodmoulding01a_n.dds  <=  Rochester SE ENG-28758-1-0-1567499549.zip
+textures\oaristys\misc\woodmetalstrip_alt.dds  <=  Modder's Resource Pack - CORE-16525-3-2.7z
+textures\oaristys\paper\sheet02b.dds  <=  Modder's Resource Pack - CORE-16525-3-2.7z
+textures\oaristys\paper\sheet02b_n.dds  <=  Modder's Resource Pack - CORE-16525-3-2.7z
+textures\oaristys\paper\sheet02c.dds  <=  Modder's Resource Pack - CORE-16525-3-2.7z
+textures\oaristys\paper\sheet02c_n.dds  <=  Modder's Resource Pack - CORE-16525-3-2.7z

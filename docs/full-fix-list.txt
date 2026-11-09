@@ -28,7 +28,7 @@ Patch: Lordbound Fixes.esp + patched scripts + copied textures/models, for Lordb
 
 12. Chasing Dreams: the 'Find 3 Brainrot Mushrooms (x/3)' and 'Find 3 Nightshade (x/3)' objectives showed '[...]/3' because their counter globals were never added to the quest's Text Display Globals list
 
-13. Models that point at files Lordbound never shipped (red '!' in game), repointed to an existing model: Ashlorn rib-cap pieces (4 placed), a blue crystal in Ysgramor's Folly (typo'd path), a Highrock Stop roof, Aedron's armor spaulders on women, the Barbarian Orcish cuirass in first person, and the Liquor of Rooting bottle
+13. Models that point at files Lordbound never shipped (red '!' in game), repointed to an existing model: Ashlorn rib-cap pieces (4 placed), a blue crystal in Ysgramor's Folly (typo'd path), a Highrock Stop roof, Aedron's armor spaulders on women, and the Liquor of Rooting bottle
 
 14. Enigmatic Origins: the Jagged Crown on the skeleton atop the throne in the Revenant's version of Highreach was a real, lootable crown placed as loose loot; it is now a static decoration with the same model
 

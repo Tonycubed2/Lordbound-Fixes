@@ -186,14 +186,12 @@ def set_model(out,edid,tag,path):
         if t==tag: subs[i]=(t,path.encode('latin1')+b'\0'); n+=1; break
     assert n==1,(edid,tag); out.override(r,subs)
 
-@fix("Models that point at files Lordbound never shipped (red '!' in game), repointed to an existing model: Ashlorn rib-cap pieces (4 placed), a blue crystal in Ysgramor's Folly (typo'd path), a Highrock Stop roof, Aedron's armor spaulders on women, the Barbarian Orcish cuirass in first person, and the Liquor of Rooting bottle")
+@fix("Models that point at files Lordbound never shipped (red '!' in game), repointed to an existing model: Ashlorn rib-cap pieces (4 placed), a blue crystal in Ysgramor's Folly (typo'd path), a Highrock Stop roof, Aedron's armor spaulders on women, and the Liquor of Rooting bottle")
 def f_models(out):
     set_model(out,'DrV_wrintdragonroomribcap01','MODL',r'Architecture\Whiterun\WRInteriors\WRCastle\WRIntDragonRoomRibCap01.nif')
     set_model(out,'DRV_BlueStaticCrystal','MODL',r'Clutter\SoulGem\SoulGemGreater01.nif')
     set_model(out,'DrV_FFHouse02RoofSnow','MODL',r'Architecture\DrV_Frostford\BehindtheInnHouseSnowHeavy.nif')
     set_model(out,'DrV_EbonySpauldersAA','MOD3',r'armor\ebony\m\Lautasantenni_Spaulders2_1.nif')
-    set_model(out,'DrV_OrcishCuirassBarbarianAA','MOD4',r'Armor\Orcish\1stPersonCuirassM_1.nif')
-    set_model(out,'DrV_OrcishCuirassBarbarianAA','MOD5',r'Armor\Orcish\1stPersonCuirassF_1.nif')
     set_model(out,'DRVC_RootingLiquorBrew','MODL',r'clutter\DrV_StoneBark\Brews\DrV_StonebarkCOBR.nif')
 
 @fix("Enigmatic Origins: the Jagged Crown on the skeleton atop the throne in the Revenant's version of Highreach was a real, lootable crown placed as loose loot; it is now a static decoration with the same model")
