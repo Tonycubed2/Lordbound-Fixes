@@ -1,0 +1,572 @@
+LORDBOUND FIXES - DETAILED CHANGE LIST
+========================================================================
+For: Lordbound 0.8.1 (Nexus 160493), plugin Druadach.esm. Personal-use patch.
+Form IDs below are as Druadach.esm sees them (05xxxxxx = Druadach.esm, 00xxxxxx = Skyrim.esm,
+06xxxxxx = new records inside Lordbound Fixes.esp). In your load order the first two digits will differ.
+
+FILES AND WHERE THEY ARE
+------------------------------------------------------------------------
+F:\SkyrimSEMOModfolder\Lordbound Fixes\Lordbound Fixes.esp            the patch plugin (ESL-flagged, master Druadach.esm)
+F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd_lbmq09questscript.pex
+F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd__qf_dd_lbmq09_0105bc20.pex
+F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd__qf_dd_impmq09a_010407d4.pex
+F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd__sf_dd_lbmq02fulazwyrmsban_0105c5d1.pex
+F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd__qf_dd_orcnq01_0107fcd1.pex
+F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\...                   251 textures copied from your other MO2 mods
+F:\SkyrimSEMOModfolder\Lordbound Fixes\meshes\...                     3 models copied from your other MO2 mods
+F:\SkyrimSEMOModfolder\Lordbound Fixes\Lordbound Fixes - README.txt
+F:\SkyrimSEMOModfolder\Lordbound Fixes\Lordbound Fixes - full fix list.txt
+F:\SkyrimSEMOModfolder\Lordbound Fixes\Lordbound Fixes - missing textures.txt
+F:\SkyrimSEMOModfolder\Lordbound Fixes\_work\                         my analysis workspace (the game ignores it)
+F:\SkyrimSEMOModfolder\Lordbound Meshes SE\meshes\...   3,045 old-format (LE) Lordbound meshes copied for SSE NIF Optimizer
+
+MO2 setup: tick "Lordbound Fixes" (and "Lordbound Meshes SE" once optimized), both BELOW "Lordbound";
+tick Lordbound Fixes.esp and load it after Druadach.esm.
+
+1. PLUGIN FIXES (Lordbound Fixes.esp)
+------------------------------------------------------------------------
+1. Masters of Highreach: Lanelle had no reaction line if Fardris's quest (LBMQ05) was the master quest you finished first, so the talk ended and stage 2 was never set; her generic line now covers that case
+   Record changed: INFO 0505C4CE (topic DD_LBMQ01LordboundReaction, Lanelle: "You show great promise...").
+   Removed its condition GetQuestCompleted(DD_LBMQ05) != 1, so this generic reply also plays when Fardris's quest is the one you finished first.
+   The reply leads to Lanelle's proposal (INFO 0505C48F), whose script sets DD_LBMQ01 stage 2.
+   In game: The Masters of Highreach - talking to Lanelle no longer ends early; console workaround no longer needed (setstage DD_LBMQ01 2).
+
+2. Fill script properties the authors declared and use but left empty in the CK (quests, scenes, triggers, NPCs); empty properties make stages, scenes and triggers silently do nothing
+   143 script properties on 106 records (full per-quest list in section 3).
+
+3. Just Deserts: 'I had to kill him' / 'war criminal' replies required stage below 100, but killing Sergus sets stage 100, so options 2 and 3 dead-ended; now allowed up to stage 109
+   Records changed: INFO 05096C91, 05096C92, 05096C8C (Mathieu's replies "I had to kill him..." / "war criminal").
+   Condition GetStage(DD_ImpSQ01) < 100 changed to < 110.
+   In game: Just Deserts options 2 and 3 now complete the quest (stages 112 / 111) instead of needing setstage.
+
+4. The Lost Children: Lanelle's 'follow player to Garza' package only ran while she was inside Highreach, so she stopped following the moment you left town and the Garza scene trigger (needs both of you) never fired
+   Record changed: PACK DD_OrcMQ05LanelleFollowPlayerToGarza (follow package).
+   Removed condition GetInCurrentLoc(DDHighreachLocation) == 1.
+   The scene with Garza (DD_OrcMQ05LanelleGarza) starts from trigger REFR 050A1973 only when both you and Lanelle are inside it.
+
+5. Wrath: Garom's two optional answers at the end had no links back to the remaining choices, so you were dropped into a '...' loop; they now offer the other questions and 'You can count on me'
+   Records changed: INFO 0506D392 (answer to "How could they have breached the passage?") and INFO 0506D382 (answer to "If I need to follow Garza...").
+   Added reply choices (TCLT) linking to the other question and to "You can count on me" (DIAL 0506D381).
+
+6. Kinslayer: after you spare Azgoth and pass Borgog's speech check, his reward line required stage 70 (the 'killed him' stage), so the quest never finished; the reward now also accepts the 'spared' stage 60
+   Record changed: INFO 0507FC73 (Borgog reward line, topic DD_OrcNQ02BorgogBranchRewardTopic).
+   Condition GetStage(DD_OrcNQ02) == 70 changed to >= 60.
+
+7. Fill two more empty properties whose target records have slightly different names: Masters of Highreach 'LBMQ02' (Fulaz-Ahl's quest, used to tick his objective) and Tour of Duty's tracking spell (so M'zaad's tracking spell is removed afterwards)
+   Records changed: QUST DD_LBMQ01 (script DD__QF_DD_LBMQ01_010173E2: property LBMQ02 = DD_LBMQ02 050173E1)
+   and QUST DD_ImpMQ01 (script DD_ImpMQ01QuestScript: property DD_ImpMQ01InterrogatorTrackerSpell = DD_ImpMQ01InterrogatorTrackingSpell 05018869 "M'zaad's Spell of Tracking").
+
+8. Door landing spots that were left sitting on top of the destination door: Garshakur Tailor exit (you appeared between the door and the wall) and the Putrid Cove Retreat entrance (you appeared facing the wall)
+   Records changed (door teleport destination, XTEL):
+   - REFR 050AEA57 (Garshakur Tailor interior door): landing moved 80 units in front of exterior door 050A8A0C, same facing.
+   - REFR 050146C7 (exterior door into Putrid Cove Retreat): landing moved 90 units into the room from door 0503FBD8 and turned 180 degrees.
+
+9. Grave of the First: Fulaz-Ahl's barrier-breaking scene only removed the barrier when his 'cast Thunderbolt at the barrier marker' package finished; if it never finished he stood there 'busy' forever. The barrier is now removed when that part of the scene starts (patched scene script waits a few seconds and ends the scene if it is still hung)
+   Record changed: SCEN DD_LBMQ02FulazWyrmsbaneComment (0505C5D1). Phase 2 script fragment switched from "on phase end" to "on phase start".
+   Script patched: F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd__sf_dd_lbmq02fulazwyrmsban_0105c5d1.pex (Fragment_2: wait 6 s, DisableBarrier, wait 4 s, stop scene if still playing).
+
+10. Marks of a Fighter: Luzgrath asks for 'Stonebark Ale' and skulls, but only counted the vanilla Ale (rare in the valley) and the vanilla skull, not Lordbound's Stonebark ales or its own skull item; now any Stonebark drink or Ale, and either skull, count (and get taken)
+   New records: FLST 06000800 LBFix_OrcNQ01Drinks (vanilla Ale + 16 Stonebark drinks), FLST 06000801 LBFix_OrcNQ01Skulls (vanilla skull 000AF5FD + Lordbound skull 0503FE57).
+   Records changed: INFO 0507FC92, 0507FC9B, 0507FC9A (Luzgrath) - GetItemCount now counts the two lists; QUST DD_OrcNQ01 - properties LBFixDrinks / LBFixSkulls added.
+   Script patched: F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd__qf_dd_orcnq01_0107fcd1.pex (stage 40 removes 1 drink and 12 skulls from the lists).
+
+11. The Lost Legion added at the end of Lordbound: the faction-epilogue quest picks a journal entry for stage 100, and the Imperial entry's only condition (The Lost Legion at stage 270) was flagged OR with nothing after it, which leaves that entry's test open-ended; the stray OR flag is removed
+   Record changed: QUST DD_FactionEpilogue (0504A171), stage 100 first journal entry: removed the OR flag from its only condition GetStage(DD_ImpMQ10) == 270.
+
+12. Chasing Dreams: the 'Find 3 Brainrot Mushrooms (x/3)' and 'Find 3 Nightshade (x/3)' objectives showed '[...]/3' because their counter globals were never added to the quest's Text Display Globals list
+   Record changed: QUST DD_LBMQ05 - added Text Display Globals DD_LBMQ05BrainrotCount (050AC965) and DD_LBMQ05NightshadeCount (050AC966).
+
+13. Models that point at files Lordbound never shipped (red '!' in game), repointed to an existing model: Ashlorn rib-cap pieces (4 placed), a blue crystal in Ysgramor's Folly (typo'd path), a Highrock Stop roof, Aedron's armor spaulders on women, the Barbarian Orcish cuirass in first person, and the Liquor of Rooting bottle
+   Records changed (model path):
+   - STAT DrV_wrintdragonroomribcap01 -> Architecture\Whiterun\WRInteriors\WRCastle\WRIntDragonRoomRibCap01.nif (vanilla)
+   - STAT DRV_BlueStaticCrystal -> Clutter\SoulGem\SoulGemGreater01.nif (vanilla; old path had the folder twice)
+   - STAT DrV_FFHouse02RoofSnow -> Architecture\DrV_Frostford\BehindtheInnHouseSnowHeavy.nif (Lordbound file; old path had an extra \Snow\ folder)
+   - ARMA DrV_EbonySpauldersAA female model -> armor\ebony\m\Lautasantenni_Spaulders2_1.nif (female file was never shipped)
+   - ARMA DrV_OrcishCuirassBarbarianAA 1st-person -> Armor\Orcish\1stPersonCuirassM_1.nif / 1stPersonCuirassF_1.nif (vanilla)
+   - ALCH DRVC_RootingLiquorBrew -> clutter\DrV_StoneBark\Brews\DrV_StonebarkCOBR.nif (Lordbound file)
+
+14. Enigmatic Origins: the Jagged Crown on the skeleton atop the throne in the Revenant's version of Highreach was a real, lootable crown placed as loose loot; it is now a static decoration with the same model
+   New record: STAT 06000802 LBFix_JaggedCrownStatic (model Armor\BoneCrown\BoneCrownGO.nif).
+   Record changed: REFR 05032ED1 in DrVRevenantHighreach "The Epitaph" - base changed from ARMO ArmorBoneCrown (000DA750) to the new static.
+
+2. PATCHED SCRIPTS
+------------------------------------------------------------------------
+F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd_lbmq09questscript.pex
+   Original: F:\SkyrimSEMOModfolder\Lordbound\scripts\dd_lbmq09questscript.pex (unchanged)
+   Sins of the Father: remember the player's SpeedMult when you become Lanrick and restore any amount lost when you change back
+
+F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd__qf_dd_lbmq09_0105bc20.pex
+   Original: F:\SkyrimSEMOModfolder\Lordbound\scripts\dd__qf_dd_lbmq09_0105bc20.pex (unchanged)
+   Sins of the Father: stage 260 also removes both flashback speed debuffs before you change back (in case stage 253 was skipped)
+
+F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd__qf_dd_impmq09a_010407d4.pex
+   Original: F:\SkyrimSEMOModfolder\Lordbound\scripts\dd__qf_dd_impmq09a_010407d4.pex (unchanged)
+   The Sacking of Garshakur: Faaram Marvani is flagged essential on his base record, so 'Defeat Faaram Marvani' (stage 190) could never be completed; the stage now makes him mortal
+
+F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd__sf_dd_lbmq02fulazwyrmsban_0105c5d1.pex
+   Original: F:\SkyrimSEMOModfolder\Lordbound\scripts\dd__sf_dd_lbmq02fulazwyrmsban_0105c5d1.pex (unchanged)
+   Grave of the First: barrier fragment now runs at the start of the casting phase, waits 6 s for Fulaz's spell, removes the barrier, then ends the scene if it is still stuck 4 s later
+
+F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd__qf_dd_orcnq01_0107fcd1.pex
+   Original: F:\SkyrimSEMOModfolder\Lordbound\scripts\dd__qf_dd_orcnq01_0107fcd1.pex (unchanged)
+   Marks of a Fighter: stage 40 takes 1 drink and 12 skulls from the new lists (any Stonebark drink or Ale; vanilla or Lordbound skull) instead of only the vanilla items
+
+3. SCRIPT PROPERTIES FILLED (record -> script -> property = value)
+------------------------------------------------------------------------
+[(no name) - DD_DialogueGarshakur]
+   INFO INFO (050677C4) | script DD__TIF__010677C4 | DD_FoodJagga = DD_FoodJagga (0506781C)
+
+[(no name) - DD_LBMQ06OrefellBattle]
+   REFR REFR (0508A569) [in DrVOrefellSmithDestroyed "Orefell Smith"] | script DD_LBMQ06HouseSearchTriggerScript | DD_LBMQ06OrefellBattle = DD_LBMQ06OrefellBattle (0508A52A)
+   REFR REFR (0508A791) [in DRVOrefellHouse01BasementDestroyed "Carolyne's Basement"] | script DD_LBMQ06HouseSearchTriggerScript | DD_LBMQ06OrefellBattle = DD_LBMQ06OrefellBattle (0508A52A)
+
+[(no name) - DD_LBMQ10RevenantBossQuest]
+   ACHR DD_LBMQ10RevenantREF (0507BC33) [in DRVEmpyreanVaultUpper03 "Empyrean Vault Dungeon Depths"] | script DD_LBMQ10RevenantBossScript | DD_LBMQ10RevenantBossQuest = DD_LBMQ10RevenantBossQuest (0507B8F5)
+
+[(no name) - DD_SkylockGate]
+   ACTI DD_SkylockGateBlocker (0509342D) | script DD_SkylockGateBlocker | DD_SkylockGate = DD_SkylockGate (05093440)
+
+[(no name) - DLW_Dialogue_HighreachMarket]
+   INFO INFO (0509F2D0) | script DD__TIF__0509F2D0 | DrV_ArmorOrcishEliteCuirassBlue = DrV_ArmorOrcishEliteCuirassBlue (0509AAF9)
+
+[A Sealed Fate - DD_LBMQ07]
+   ACTI DD_SkylockGateBlocker (0509342D) | script DD_SkylockGateBlocker | DD_LBMQ07 = DD_LBMQ07 (05032EEA)
+   ACTI DrV_EmpyreanKillTrigger (0506DD72) | script DrV_EmpyreanKillTriggerScript | DD_LBMQ07 = DD_LBMQ07 (05032EEA)
+
+[A Shadow of Doubt - DD_OS02]
+   QUST DD_OS02 (0506D114) | script DD__QF_DD_OS02_0106D114 | DD_OS02TornSoulREF01 = DD_OS02TornSoulREF01 (0506CECC)
+   QUST DD_OS02 (0506D114) | script DD__QF_DD_OS02_0106D114 | DD_OS02WayfarerPrisonerReturnToOreholdMarker01 = DD_OS02WayfarerPrisonerReturnToOreholdMarker01 (0506CEAB)
+
+[A Wild Hunt - DD_LBMQ03]
+   ACTI DD_LBMQ03ObjectiveToggle (050009FB) | script DD_LBMQ03ToggleObjectiveScript | DD_LBMQ03 = DD_LBMQ03 (050173E0)
+
+[Ash and Blood - DD_OrcMQ10]
+   QUST DD_OrcMQ10 (05066165) | script DD__QF_DD_OrcMQ10_01066165 | DD_OrcMQ10GarzaBranchScene02OrcMarker01 = DD_OrcMQ10GarzaBranchScene02OrcMarker01 (050661DF)
+
+[Blissful Ignorance - DD_LBMQ07Orb]
+   ACTI DD_LBMQ07BtharZelCore (050221C3) | script DD_LBMQ07BtharZelCoreScript | DD_LBMQ07Orb = DD_LBMQ07Orb (0509343F)
+
+[Chasing Dreams - DD_LBMQ05]
+   ACTI DD_LBMQ05MemoryInteractions (05016CCE) | script DD_LBMQ05MemoryInteractionScript | DD_LBMQ05 = DD_LBMQ05 (050173DE)
+
+[Dead's Honor - DD_OrcMQ02]
+   ACHR ACHR (0503202C) [in open world] | script DD_BossUndyingRevenant | DD_OrcMQ02 = DD_OrcMQ02 (0502FAD4)
+   ACHR DD_ImpMQ03RevenantBossREF (05018822) [in open world] | script DD_BossUndyingRevenant | DD_OrcMQ02 = DD_OrcMQ02 (0502FAD4)
+   ACHR DD_ImpMQ06RevenantRef (05036AD8) [in DrVEmpyreanAnnex "Skylock Citadel"] | script DD_BossUndyingRevenant | DD_OrcMQ02 = DD_OrcMQ02 (0502FAD4)
+   ACHR DD_LBMQ06RevenantRef (0508A543) [in open world] | script DD_BossUndyingRevenant | DD_OrcMQ02 = DD_OrcMQ02 (0502FAD4)
+
+[Enigmatic Origins - DD_LBMQ06a]
+   ACHR ACHR (0503202C) [in open world] | script DD_BossUndyingRevenant | DD_LBMQ06a = DD_LBMQ06a (05032EE8)
+   ACHR DD_ImpMQ03RevenantBossREF (05018822) [in open world] | script DD_BossUndyingRevenant | DD_LBMQ06a = DD_LBMQ06a (05032EE8)
+   ACHR DD_ImpMQ06RevenantRef (05036AD8) [in DrVEmpyreanAnnex "Skylock Citadel"] | script DD_BossUndyingRevenant | DD_LBMQ06a = DD_LBMQ06a (05032EE8)
+   ACHR DD_LBMQ06RevenantRef (0508A543) [in open world] | script DD_BossUndyingRevenant | DD_LBMQ06a = DD_LBMQ06a (05032EE8)
+   REFR REFR (050326A7) [in open world] | script DD_LBMQ06aRevenantPortalScript | DD_LBMQ06a = DD_LBMQ06a (05032EE8)
+   REFR REFR (0509E180) [in open world] | script DD_LBMQ06aRevenantPortalScript | DD_LBMQ06a = DD_LBMQ06a (05032EE8)
+
+[Frontier Justice - DD_ImpMQ07A]
+   SCEN DD_ImpMQ07AMayorIntroScene01 (0503AF51) | script DD__SF_DD_ImpMQ07AMayorIntroS_0103AF51 | DD_ImpMQ07aMercenarySceneMoveMarker = DD_ImpMQ07aMercenarySceneMoveMarker (0508B551)
+
+[Grave of the First - DD_LBMQ02]
+   ACTI DD_LBMQ02GateTrigger (05016CD0) | script DD_LBMQ02GateScript | DD_LBMQ02 = DD_LBMQ02 (050173E1)
+   QUST DD_LBMQ02 (050173E1) | script DD_LBMQ02QuestScript | DD_LBMQ02BossDeathFinal = DD_LBMQ02BossDeathFinal (0508AF38)
+
+[Ill Omens - DD_ImpMQ03]
+   QUST DD_ImpMQ03 (05018788) | script DD__QF_DD_ImpMQ03_01018788 | DD_ImpMQ03ScoutScene01 = DD_ImpMQ03ScoutScene01 (0501885D)
+
+[Lordbound - DD_LBMQ10]
+   ACTI DD_LBMQ10PlaceOrbTrigger (05080580) | script DD_LBMQ10PlaceOrbTriggerScript | DD_LBMQ10 = DD_LBMQ10 (050806D2)
+   REFR REFR (05000A0F) [in DRVEmpyreanVaultThalmorBossRoom "Empyrean Vault Catacombs"] | script DD_LBMQ10CatchupScript | DD_LBMQ10 = DD_LBMQ10 (050806D2)
+   REFR REFR (05000A12) [in DRVEmpyreanVaultDepths06 "Forgotten Cells"] | script DD_LBMQ10CatchupScript | DD_LBMQ10 = DD_LBMQ10 (050806D2)
+
+[Monuments of Sin - DD_LBMQ06b]
+   ACTI DD_LBMQ06BoneTotemActivator (0503316A) | script DD_LBMQ06BoneTotemScript | DD_LBMQ06b = DD_LBMQ06b (05032EE9)
+   QUST DD_LBMQ06b (05032EE9) | script DD__QF_DD_LBMQ06b_01032EE9 | DD_LBMQ06 = DD_LBMQ06 (05032EE7)
+
+[Oathbreaker - DD_OrcMQ08]
+   QUST DD_OrcMQ08 (0505DA23) | script DD__QF_DD_OrcMQ08_0105DA23 | DD_OrcMQ08GardaleFinaleBorgogMarker01 = DD_OrcMQ08GardaleFinaleBorgogMarker01 (0505D92A)
+   REFR DD_OrcMQ08SiegeCatapult01 (0505D9DE) [in open world] | script DD_OrcMQ08CatapultScript | DD_OrcMQ08 = DD_OrcMQ08 (0505DA23)
+   REFR DD_OrcMQ08SiegeCatapult02 (0505D9D5) [in open world] | script DD_OrcMQ08CatapultScript | DD_OrcMQ08 = DD_OrcMQ08 (0505DA23)
+   REFR DD_OrcMQ08SiegeCatapult03 (0505D9CE) [in open world] | script DD_OrcMQ08CatapultScript | DD_OrcMQ08 = DD_OrcMQ08 (0505DA23)
+   REFR DD_OrcMQ08SiegeCatapultTrigger01 (0505D9C4) [in open world] | script DD_SiegeWeaponBurnScript | DD_OrcMQ08 = DD_OrcMQ08 (0505DA23)
+   REFR DD_OrcMQ08SiegeCatapultTrigger02 (0505D9C9) [in open world] | script DD_SiegeWeaponBurnScript | DD_OrcMQ08 = DD_OrcMQ08 (0505DA23)
+   REFR DD_OrcMQ08SiegeCatapultTrigger03 (0505D9C0) [in open world] | script DD_SiegeWeaponBurnScript | DD_OrcMQ08 = DD_OrcMQ08 (0505DA23)
+
+[Sins of the Father - DD_LBMQ09]
+   ACTI DD_LBMQ09DefaultDisablePlayerControlsTrigger (0505BA0D) | script DD_DisablePlayerActivateOnEnter | DD_LBMQ09 = DD_LBMQ09 (0505BC20)
+   QUST DD_LBMQ09 (0505BC20) | script DD_LBMQ09QuestScript | DD_LBMQ09GhostVoiceMarker01 = DD_LBMQ09GhostVoiceMarker01 (0505BBE4)
+   QUST DD_LBMQ09 (0505BC20) | script DD_LBMQ09QuestScript | DD_LBMQ09GhostVoiceMarker02 = DD_LBMQ09GhostVoiceMarker02 (0505BBE5)
+
+[Skooma Stash - DD_WE01]
+   CONT DD_WE01SkoomaChest (05016D4F) | script DD_WE01ChestScript | DD_WE01 = DD_WE01 (050173DC)
+
+[Taking Malgorath - DD_ImpMQ08a]
+   QUST DD_ImpMQ08a (0503C47A) | script DD_ImpMQ08aGarzaAliasScript (alias 2) | DD_ImpMQ08aGarzaArenaChallengeScene01 = DD_ImpMQ08aGarzaArenaChallengeScene01 (0503C57F)
+   QUST DD_ImpMQ08a (0503C47A) | script DD_ImpMQ08aGarzaAliasScript (alias 2) | DD_ImpMQ08aGarzaPrematureBattleScene01 = DD_ImpMQ08aGarzaPrematureBattleScene01 (0503C586)
+
+[The Lost Children - DD_OrcMQ05]
+   REFR DD_OrcMQ05CastMagicTrigger (050A1967) [in open world] | script DD_OrcMQ05CheckPlayerInRange | DD_OrcMQ05 = DD_OrcMQ05 (0503761B)
+
+[The Sacking of Garshakur - DD_ImpMQ09A]
+   QUST DD_ImpMQ09A (050407D4) | script DD__QF_DD_ImpMQ09A_010407D4 | DD_ImpMQ09GarshakurStockadeBlockadeEnabler01 = DD_ImpMQ09GarshakurStockadeBlockadeEnabler01 (05040995)
+   QUST DD_ImpMQ09A (050407D4) | script DD__QF_DD_ImpMQ09A_010407D4 | Keep_Backdoor001 = Keep_Backdoor001 (05004D6F)
+   QUST DD_ImpMQ09A (050407D4) | script DD__QF_DD_ImpMQ09A_010407D4 | Keep_Frontdoor001 = Keep_Frontdoor001 (05004D6E)
+
+[Tour of Duty - DD_ImpMQ01]
+   INFO INFO (0508A4DB) | script DD__TIF__0108A4DB | DD_ImpMQ01TaskEnabler = DD_ImpMQ01TaskEnabler (050AC97A)
+   QUST DD_ImpMQ01 (05018786) | script DD__QF_DD_ImpMQ01_01018786 | DD_ImpMQ01HuntsmanTaskBowEnabler01 = DD_ImpMQ01HuntsmanTaskBowEnabler01 (05081ABF)
+
+[Not tied to a quest]
+   ACHR ACHR (0503202C) [in open world] | script DD_BossUndyingRevenant | DD_LBMQ10NightmareMemoryFXBody01VFX = DD_LBMQ10NightmareMemoryFXBody01VFX (0507AF1B)
+   ACHR ACHR (0503202C) [in open world] | script DD_BossUndyingRevenant | DD_LBMQ10RevenantTeleportFXActivator = DD_LBMQ10RevenantTeleportFXActivator (0507B8B8)
+   ACHR ACHR (0503202C) [in open world] | script DD_BossUndyingRevenant | Druadach = Druadach (050012C4)
+   ACHR ACHR (0503202C) [in open world] | script DD_BossUndyingRevenant | RevenantHoldingCellMarker = RevenantHoldingCellMarker (0502FB23)
+   ACHR ACHR (0503202C) [in open world] | script DD_BossUndyingRevenant | drv_AMBRevenantWeatherWind2DLP = drv_AMBRevenantWeatherWind2DLP (05018867)
+   ACHR ACHR (0505BA33) [in drvFrostfordKeep01 "Frostford Keep"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BA3A) [in drvFrostfordKeep01 "Frostford Keep"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BA3B) [in drvFrostfordKeep01 "Frostford Keep"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BA3C) [in drvFrostfordKeep01 "Frostford Keep"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BA3E) [in drvFrostfordKeep01 "Frostford Keep"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BA40) [in drvFrostfordKeep01 "Frostford Keep"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BA41) [in drvFrostfordKeep01 "Frostford Keep"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BA9D) [in drvFrostfordKeep02 "Frostford Dungeons"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BAA2) [in drvFrostfordKeep02 "Frostford Dungeons"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BAA3) [in drvFrostfordKeep02 "Frostford Dungeons"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BAA4) [in drvFrostfordKeep02 "Frostford Dungeons"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BAA9) [in drvFrostfordKeep02 "Frostford Dungeons"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BAAA) [in drvFrostfordKeep02 "Frostford Dungeons"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BAAC) [in drvFrostfordKeep02 "Frostford Dungeons"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BAB1) [in drvFrostfordKeep02 "Frostford Dungeons"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BAB2) [in drvFrostfordKeep02 "Frostford Dungeons"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BAB3) [in drvFrostfordKeep02 "Frostford Dungeons"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BABA) [in drvFrostfordKeep02 "Frostford Dungeons"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BABB) [in drvFrostfordKeep02 "Frostford Dungeons"] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BB8C) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BB8D) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BB93) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BB98) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BB99) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BB9A) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BB9B) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BB9C) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BB9D) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BB9E) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BB9F) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBA1) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBA6) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBA7) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBAA) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBAB) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBAD) [in FrostfordCrater01 ""] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBAE) [in FrostfordCrater01 ""] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBAF) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBB0) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBB1) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBB2) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBB3) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBB4) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBB5) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBB6) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBB7) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBB8) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBBA) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBBB) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBBC) [in FrostfordCentre01 ""] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBBE) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBBF) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBC0) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0505BBC5) [in open world] | script DD_FrozenHuskScript | DD_FrozenHuskAbility = DD_FrozenHuskAbility (0505BA09)
+   ACHR ACHR (0506DEF4) [in DRVGardaleMine "Gardale Mine"] | script DD_ImpMQ01TorturerPrisoner01Script | DD_ImpMQ01TrackerEnabler16 = DD_ImpMQ01TrackerEnabler16 (050187D3)
+   ACHR ACHR (0507AA53) [in DRVEmpyreanVaultNightmare02 "The Warp of Prophecy"] | script DD_LBMQ10NightmareGhostScript | DD_LBMQ10NightmareMemoryFXBody01VFX = DD_LBMQ10NightmareMemoryFXBody01VFX (0507AF1B)
+   ACHR DD_ImpMQ03RevenantBossREF (05018822) [in open world] | script DD_BossUndyingRevenant | DD_LBMQ10NightmareMemoryFXBody01VFX = DD_LBMQ10NightmareMemoryFXBody01VFX (0507AF1B)
+   ACHR DD_ImpMQ03RevenantBossREF (05018822) [in open world] | script DD_BossUndyingRevenant | DD_LBMQ10RevenantTeleportFXActivator = DD_LBMQ10RevenantTeleportFXActivator (0507B8B8)
+   ACHR DD_ImpMQ03RevenantBossREF (05018822) [in open world] | script DD_BossUndyingRevenant | Druadach = Druadach (050012C4)
+   ACHR DD_ImpMQ03RevenantBossREF (05018822) [in open world] | script DD_BossUndyingRevenant | RevenantHoldingCellMarker = RevenantHoldingCellMarker (0502FB23)
+   ACHR DD_ImpMQ03RevenantBossREF (05018822) [in open world] | script DD_BossUndyingRevenant | drv_AMBRevenantWeatherWind2DLP = drv_AMBRevenantWeatherWind2DLP (05018867)
+   ACHR DD_ImpMQ06RevenantRef (05036AD8) [in DrVEmpyreanAnnex "Skylock Citadel"] | script DD_BossUndyingRevenant | Druadach = Druadach (050012C4)
+   ACHR DD_ImpMQ06RevenantRef (05036AD8) [in DrVEmpyreanAnnex "Skylock Citadel"] | script DD_BossUndyingRevenant | RevenantHoldingCellMarker = RevenantHoldingCellMarker (0502FB23)
+   ACHR DD_ImpMQ06RevenantRef (05036AD8) [in DrVEmpyreanAnnex "Skylock Citadel"] | script DD_BossUndyingRevenant | drv_AMBRevenantWeatherWind2DLP = drv_AMBRevenantWeatherWind2DLP (05018867)
+   ACHR DD_LBMQ06RevenantRef (0508A543) [in open world] | script DD_BossUndyingRevenant | Druadach = Druadach (050012C4)
+   ACHR DD_LBMQ06RevenantRef (0508A543) [in open world] | script DD_BossUndyingRevenant | RevenantHoldingCellMarker = RevenantHoldingCellMarker (0502FB23)
+   ACHR DD_LBMQ06RevenantRef (0508A543) [in open world] | script DD_BossUndyingRevenant | drv_AMBRevenantWeatherWind2DLP = drv_AMBRevenantWeatherWind2DLP (05018867)
+   ACHR DD_LBMQ10GortwogREF (0507A930) [in DRVEmpyreanVaultNightmare02 "The Warp of Prophecy"] | script DD_LBMQ10NightmareGhostScript | DD_LBMQ10NightmareMemoryFXBody01VFX = DD_LBMQ10NightmareMemoryFXBody01VFX (0507AF1B)
+   ACHR DD_LBMQ10RevenantREF (0507BC33) [in DRVEmpyreanVaultUpper03 "Empyrean Vault Dungeon Depths"] | script DD_LBMQ10RevenantBossScript | DD_AbUndyingRevenant = DD_AbUndyingRevenant (050183D7)
+   ACHR DD_LBMQ10RevenantREF (0507BC33) [in DRVEmpyreanVaultUpper03 "Empyrean Vault Dungeon Depths"] | script DD_LBMQ10RevenantBossScript | DD_LBMQ10RevenantTeleportFXActivator = DD_LBMQ10RevenantTeleportFXActivator (0507B8B8)
+   ACHR DD_LBMQ10RevenantREF (0507BC33) [in DRVEmpyreanVaultUpper03 "Empyrean Vault Dungeon Depths"] | script DD_LBMQ10RevenantBossScript | Druadach = Druadach (050012C4)
+   ACHR DD_LBMQ10RevenantREF (0507BC33) [in DRVEmpyreanVaultUpper03 "Empyrean Vault Dungeon Depths"] | script DD_LBMQ10RevenantBossScript | drv_AMBRevenantWeatherWind2DLP = drv_AMBRevenantWeatherWind2DLP (05018867)
+   ACTI DD_LBMQ05MemoryInteractions (05016CCE) | script DD_LBMQ05MemoryInteractionScript | DD_LBMQ05RarauchScene = DD_LBMQ05RarauchScene (050183BF)
+   MGEF drv_AbFXRevenant (0507AF59) | script DD_FXRevenantScript | DD_LBMQ10NightmareMemoryFXBody01VFX = DD_LBMQ10NightmareMemoryFXBody01VFX (0507AF1B)
+   NPC_ DD_UndyingRevenant (05017394) | script DD_BossUndyingRevenant | DD_LBMQ10NightmareMemoryFXBody01VFX = DD_LBMQ10NightmareMemoryFXBody01VFX (0507AF1B)
+   NPC_ DD_UndyingRevenant (05017394) | script DD_BossUndyingRevenant | DD_LBMQ10RevenantTeleportFXActivator = DD_LBMQ10RevenantTeleportFXActivator (0507B8B8)
+   REFR DD_OrcMQ08SiegeCatapult01 (0505D9DE) [in open world] | script DD_OrcMQ08CatapultScript | DD_OrcMQ08CatapultMessage = DD_OrcMQ08CatapultMessage (0505DACE)
+   REFR DD_OrcMQ08SiegeCatapult02 (0505D9D5) [in open world] | script DD_OrcMQ08CatapultScript | DD_OrcMQ08CatapultMessage = DD_OrcMQ08CatapultMessage (0505DACE)
+   REFR DD_OrcMQ08SiegeCatapult03 (0505D9CE) [in open world] | script DD_OrcMQ08CatapultScript | DD_OrcMQ08CatapultMessage = DD_OrcMQ08CatapultMessage (0505DACE)
+   REFR MemoryActivator (05018389) [in open world] | script DD_LBMQ05MemoryInteractionScript | DD_LBMQ05RarauchScene = DD_LBMQ05RarauchScene (050183BF)
+   REFR MemoryActivator002 (05018388) [in drvNightmare04 "The Buried Abnegation"] | script DD_LBMQ05MemoryInteractionScript | DD_LBMQ05RarauchScene = DD_LBMQ05RarauchScene (050183BF)
+   REFR REFR (05021C5E) [in DrVBtharZelCore "Bthar-Zel Core"] | script DD_LBMQ07BtharZelCoreScript | MarkerFalmerEnable = MarkerFalmerEnable (05021BD4)
+   REFR REFR (050326A7) [in open world] | script DD_LBMQ06aRevenantPortalScript | DrV_RevenantHighreachMarker = DrV_RevenantHighreachMarker (0503267D)
+   REFR REFR (050326AC) [in open world] | script DD_LBMQ06aRevenantPortalScript | DrV_RevenantHighreachMarker = DrV_RevenantHighreachMarker (0503267D)
+   REFR REFR (0504F0F0) [in DRVEmpyreanVaultLobby "Empyrean Vault"] | script DD_LBMQ08CatchUpScript | DD_Qorwynn = DD_Qorwynn (050326D5)
+   REFR REFR (0509E180) [in open world] | script DD_LBMQ06aRevenantPortalScript | DrV_RevenantHighreachMarker = DrV_RevenantHighreachMarker (0503267D)
+
+4. FILES COPIED FROM YOUR OTHER MO2 MODS INTO F:\SkyrimSEMOModfolder\Lordbound Fixes
+------------------------------------------------------------------------
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\meshes\apocnew\restorationpeace_art_wildhealing.nif   <- from mod "Apocalypse - Magic of Skyrim"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\meshes\apocnew\restorationpeace_hands.nif   <- from mod "Apocalypse - Magic of Skyrim"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\meshes\landscape\grass\waterkelptall03.nif   <- from mod "Depths of Skyrim - An Underwater Overhaul SSE"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\!_rudy_misc\effects\fxglowenb.dds   <- from mod "Praedy's Staves AIO - SE (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\aars\openbook\largebookpaper02.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\aars\openbook\largebookpaper03.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\aars\openbook\largebookpaper04.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\aars\openbook\largebookpaper05.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\aars\openbook\largebookpaper10.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\aars\openbook\largebookpaper11.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\aars\openbook\largenote01.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\aars\openbook\largenote02.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\aars\openbook\largenote03.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\apocnew\lensflare.dds   <- from mod "Apocalypse - Magic of Skyrim (Apocalypse - Magic of Skyrim - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\clutter\barrel_mod\barrel_mod.dds   <- from mod "Diverse Hunter Camps 2K (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\clutter\barrel_mod\barrel_mod_em.dds   <- from mod "Diverse Hunter Camps 2K (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\clutter\barrel_mod\barrel_mod_n.dds   <- from mod "Diverse Hunter Camps 2K (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\clutter\food\meltinthemouth\cakemadeleine_choco.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\clutter\food\meltinthemouth\cakemadeleine_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\clutter\food\meltinthemouth\cakeroll03.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\clutter\food\meltinthemouth\cakeroll03_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\clutter\food\meltinthemouth\gingerman.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\clutter\food\meltinthemouth\gingerman_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\clutter\food\meltinthemouth\gingerwoman.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\clutter\food\meltinthemouth\gingerwoman_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\clutter\food\meltinthemouth\rimback.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\cubemaps\guard.dds   <- from mod "Rudy HQ - Miscellaneous SE (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\dungeons\ships\shipwood01_n.dds   <- from mod "Noble Skyrim Mod HD-2K (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\icebloomnightmare\gradicebloom.dds   <- from mod "Frostbitten Dreams Magic (IceBloomNightmare.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\icebloomnightmare\gradicebloomexplosion.dds   <- from mod "Frostbitten Dreams Magic (IceBloomNightmare.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\icebloomnightmare\gradicebloomexplosionpink.dds   <- from mod "Frostbitten Dreams Magic (IceBloomNightmare.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\insanity\furniture\common\towels\towel01_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\books.xbm.(3694).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\books_n.xbm.(3695).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\books_simple.xbm.(182).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\books_simple_n.xbm.(183).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\carpets & pillow\environment#decorations#furniture#hangars#tapestrys#textures#textile_decorative_a.xbm.(69).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\carpets & pillow\environment#decorations#furniture#hangars#tapestrys#textures#textile_decorative_a_n.xbm.(70).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\carpets & pillow\environment#decorations#furniture#hangars#tapestrys#textures#textile_decorative_b_n.xbm.(545).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\carpets & pillow\kaer_morhen_triss_interior_bed.xbm.(458).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\carpets & pillow\kaer_morhen_triss_interior_pillow.xbm.(459).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\carpets & pillow\mosspillow_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\carpets & pillow\textile_decorative_b.xbm.(544).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\carpets & pillow\textile_giant1.xbm.(94).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\carpets & pillow\textile_symbol2.xbm.(417).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\bathhouse_assets.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\bathhouse_assets_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\beer_mug.xbm.(3726).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\beer_mug_n.xbm.(3727).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\ciris_family_tree.xbm.(99).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\ciris_family_tree_n.xbm.(100).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\cradle.xbm.(217).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\cradle_n.xbm.(218).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\cradle_s.xbm.(219).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\cs_avallach_painting.xbm.(101).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\cs_avallach_painting_n.xbm.(102).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\dandelions_trophy.xbm.(666).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\dandelions_trophy_n.xbm.(667).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\emhyr_portrait.xbm.(87).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\emhyr_potrtrait_n.xbm.(88).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\forge.xbm.(180).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\forge_n.xbm.(181).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\painting_baron_anna_d.xbm.(452).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\painting_baron_anna_n.xbm.(453).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\painting_ciri_portrait_d.xbm.(75).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\painting_ciri_portrait_n.xbm.(76).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\painting_frame.xbm.(72).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\painting_frame_n.xbm.(73).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\clutter\painting_port.xbm.(74).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\container\crate_cage.xbm.(3700).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\container\crate_cage_n.xbm.(3701).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\container\dark_metal.xbm.(38).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\container\dark_metal_n.xbm.(39).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\container\sack.xbm.(1773).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\container\sack_n.xbm.(1774).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\corpses\mummified_bird_a.xbm.(353).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\corpses\mummified_bird_a_n.xbm.(356).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\corpses\mummified_bird_b.xbm.(357).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\corpses\mummified_bird_b_n.xbm.(358).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\corpses\mummified_bird_d.xbm.(363).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\corpses\mummified_bird_d_n.xbm.(366).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\corpses\t_01__cow_n01.xbm.(1910).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\corpses\t_01__deer_d01.xbm.(1913).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\corpses\t_01__deer_n01.xbm.(1914).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\corpses\t_02__cow_d01.xbm.(37).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\environment#decorations#furniture#hangars#tapestrys#textures#symbol_frame_n.xbm.(4151).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\environment#decorations#furniture#hangars#tapestrys#textures#symbol_frame_s.xbm.(68).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\furniture\baron_chair_1.xbm.(524).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\furniture\baron_chair_1_n.xbm.(525).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\kitchen\canette_hq.xbm.(514).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\kitchen\canette_hq_n.xbm.(515).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\kitchen\environment#decorations#food#fish#textures#fish_bowl.xbm.(516).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\kitchen\environment#decorations#food#fish#textures#fish_bowl_n.xbm.(517).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\kitchen\environment#decorations#food#fish#textures#fish_pile.xbm.(119).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\kitchen\environment#decorations#food#fish#textures#fish_pile_n.xbm.(120).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\kitchen\pan01_hq.xbm.(216).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\kitchen\pan01_hq_n.xbm.(217).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\kitchen\wooden_pitcher_big_hq_d01.xbm.(581).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\kitchen\wooden_pitcher_big_hq_n01.xbm.(582).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\km\bathhouse_marmor_floor.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\km\bathhouse_marmor_floor_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\km\checkered_floor.xbm.(218).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\km\checkered_floor_n.xbm.(219).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\km\floor_checkerboard_poor.xbm.(224).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\km\floor_checkerboard_poor_n.xbm.(225).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\km\tile_floor_castle.xbm.(123).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\km\tile_floor_castle_n.xbm.(124).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\painting_morgue.xbm.(454).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\painting_morgue_n.xbm.(455).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\ropes\environment#decorations#furniture#hangars#tapestrys#textures#ropeknot.xbm.(4148).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\ropes\environment#decorations#ships#basic#geralt_boat#meshes#textures#ropeknot_n.xbm.(459).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\ropes\rope.xbm.(1816).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\ropes\rope_light_n.xbm.(3760).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\signs\cameleon_inn_rich.xbm.(710).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\signs\cameleon_inn_rich_n.xbm.(711).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\signs\nowhere_inn.xbm.(526).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\signs\nowhere_inn_n.xbm.(527).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\signs\swordsmith.xbm.(530).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\signs\swordsmith_n.xbm.(531).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\various\animal_trap.xbm.(142).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\various\animal_trap_n.xbm.(143).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\various\nilfgaardian_feathers.xbm.(161).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\various\nilfgaardian_helmet.xbm.(162).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\various\nilfgaardian_helmet_n.xbm.(163).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\various\nilfgaardian_torso.xbm.(165).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\various\nilfgaardian_torso_n.xbm.(166).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\various\sq302_item__owl_feathers_n01.xbm.(5343).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\wood\barrel_skellige.xbm.(3696).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\wood\barrel_skellige_n.xbm.(3699).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\wood\boat_tileable_n.xbm.(162).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\wood\nvg_rich_wood_details.xbm.(5).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\wood\nvg_rich_wood_details_n.xbm.(6).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\wood\rich_wood_outdoor_flat_n.xbm.(8).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\wood\rich_wood_outdoor_patterns.xbm.(368).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\wood\rich_wood_outdoor_patterns_b.xbm.(369).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\wood\rich_wood_outdoor_patterns_b_n.xbm.(370).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\wood\wood_boat_old_01.xbm.(499).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\lor\custom\wood\wood_boat_old_01_n.xbm.(500).dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_01_black.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_01_blue.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_01_green.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_01_indigo.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_01_orange.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_01_red.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_01_vanilla.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_01_violet.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_01_white.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_01_yellow.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_02_black.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_02_blue.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_02_green.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_02_indigo.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_02_orange.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_02_red.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_02_vanilla.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_02_violet.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_02_white.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_02_yellow.dds   <- from mod "Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\linen\oaruinslinen_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\misc\note.dds   <- from mod "Palaces and Castles Enhanced SSE (Palaces Castles Enhanced - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\misc\wood.dds   <- from mod "Palaces and Castles Enhanced SSE (Palaces Castles Enhanced - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\misc\wood_n.dds   <- from mod "Palaces and Castles Enhanced SSE (Palaces Castles Enhanced - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\paper\folio.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\paper\folio_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\paper\sheet02.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\paper\sheet02_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\alchemy\alchcontainer.dds   <- from mod "Mage Towers of Skyrim (Mage Towers of Skyrim.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\alchemy\alchcontainer_n.dds   <- from mod "Mage Towers of Skyrim (Mage Towers of Skyrim.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\alchemy\alchdistillery01.dds   <- from mod "Mage Towers of Skyrim (Mage Towers of Skyrim.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\alchemy\alchdistillery01_n.dds   <- from mod "Mage Towers of Skyrim (Mage Towers of Skyrim.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\brick_rich.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\brick_rich_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\carvedwood_rich_b.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\carvedwood_rich_b_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\decoration\horn.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\decoration\horn_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\decoration\shell.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\decoration\shell_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\decoration\toolshanging01.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\decoration\toolshanging01_m.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\decoration\toolshanging01_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\decoration\vase.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\decoration\vase_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\bread.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\bread_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\fish_big.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\fish_big_m.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\fish_big_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\fish_hanging.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\fish_hanging_m.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\fish_hanging_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\meat2.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\meat2_m.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\meat2_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\sausages.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\sausages_m.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\food\sausages_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\furniture\bath03.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\furniture\bath03_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\paper\book.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\paper\book_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\paper\contract.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\paper\contract_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\plants\feteflowers.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\plants\feteflowers_background.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\plants\feteflowers_background_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\plants\feteflowers_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\plants\rose.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\plants\rose_n.dds   <- from mod "Distinct Interiors (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\statues\gargoyle01.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\statues\gargoyle01_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\statues\statueelven.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\statues\statueelven_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\textiles\bearskin.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\textiles\bearskin_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\textiles\wolfskin.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\textiles\wolfskin_n.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\the witcher\woodrich03.dds   <- from mod "Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\alduin_gold.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\alduin_silver.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\flagonsilver.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\raven_gold.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\raven_n.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\raven_silver.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\ravenbase_gold.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\ravenbase_n.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\ravenbase_silver.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\silver.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\silvertrim.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\spider_gold.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\spider_silver.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\spriggan_gold.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\spriggan_silver.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\t67goldcoin.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\oaristys\treasures\t67goldcoin_n.dds   <- from mod "Coldhaven - A Vampire City 2.3 (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\ground\blocks01.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\ground\blocks01_n.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\ground\stair01.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\ground\stair01_n.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\metal\copper01_n.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\metal\rust_light.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\metal\rust_n.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\wall\border03.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\wall\border03_n.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\wall\border04.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\wall\brick04_n.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\wall\brick06.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\wall\brick06_n.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\wall\plasterwhitedirty.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\wall\plasterwhitedirty_n.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\wood\plank01.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\wood\plank01_n.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\wood\wall01.dds   <- from mod "Beyond Reach (loose)"
+   F:\SkyrimSEMOModfolder\Lordbound Fixes\textures\stroti\newcastle\wood\wall01_n.dds   <- from mod "Beyond Reach (loose)"
+
+5. MESH CONVERSION (pending: you run SSE NIF Optimizer)
+------------------------------------------------------------------------
+   Copied 3,045 Lordbound meshes still in the old Skyrim LE format (419 skinned, 2,626 static)
+   from F:\SkyrimSEMOModfolder\Lordbound\meshes\...  to  F:\SkyrimSEMOModfolder\Lordbound Meshes SE\meshes\...
+   Run SSE NIF Optimizer on F:\SkyrimSEMOModfolder\Lordbound Meshes SE\meshes, then enable "Lordbound Meshes SE" below Lordbound.

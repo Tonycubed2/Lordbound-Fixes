@@ -1,0 +1,338 @@
+Textures that Lordbound meshes ask for but that are in neither Lordbound, the base game/DLC, nor any of your MO2 mods.
+Only objects Lordbound actually uses are listed. A missing main texture shows purple; a missing _n/_m/_g/_e map only makes it look flatter.
+
+PURPLE   ACTI DRVC_DefaultAshPileGold "Gold Ash Pile"  missing: textures\effects\gradients\drvc_gradgolddisguiseshader01.dds
+PURPLE   ALCH DRV_StonebarkAttractiveAleBrew "Stonebark Attractive Ale"  missing: textures\clutter\drv_stonebark\drv_beastmodebrew_alpha.dds
+PURPLE   ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\extras\frostatronachinner.dds
+PURPLE   ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\extras\icecavesubsurfacetint02.dds
+PURPLE   ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\extras\indrikgloam.dds
+PURPLE   ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\mounts\saddlegloam.dds
+PURPLE   ARTO DrV_indrick_summonindrik_hands ""  missing: textures\effects\gradients\summonnature.dds
+PURPLE   ARTO DrV_indrick_summonindrik_hands ""  missing: textures\effects\gradients\summonnaturebright.dds
+PURPLE   EXPL DD_RevenantAreaExplosion ""  missing: textures\effects\gradients\gradgreenbright.dds
+PURPLE   EXPL DRVC_RestorationMassExplosion ""  missing: textures\effects\gradients\gradturnundead.dds
+PURPLE   INGR DrV_Indrik_Loot_Feathers "Indrik Feathers"  missing: textures\actors\drv_indriks\extras\frostatronachinner.dds
+PURPLE   INGR DrV_Indrik_Loot_Feathers "Indrik Feathers"  missing: textures\actors\drv_indriks\extras\icecavesubsurfacetint02.dds
+PURPLE   INGR DrV_Indrik_Loot_Feathers "Indrik Feathers"  missing: textures\actors\drv_indriks\magic\loot\loot.dds
+PURPLE   INGR DrV_Indrik_Loot_Sap "Indrik Ooze"  missing: textures\actors\drv_indriks\magic\loot\bowl.dds
+PURPLE   INGR DrV_Indrik_Loot_Sap "Indrik Ooze"  missing: textures\actors\drv_indriks\magic\loot\ectoplasm01.dds
+PURPLE   MISC DrV_BearDruadachPelt "Druadach Bear Pelt"  missing: textures\actors\bear\bear_sk_polar.dds
+PURPLE   PROJ DRVC_FireConMassiveAim ""  missing: textures\effects\poisionswirls3.dds
+PURPLE   STAT DD_LBMQ10EmpyreanOrb_Blue_Static ""  missing: textures\clutter\empyreanorbs\sigilstone_iceblue.dds
+PURPLE   STAT DrV_DecoWoodenPole ""  missing: textures\eeks whiterun interiors\stroti\wood.dds
+PURPLE   STAT DrV_NobleChestBack01Mesh ""  missing: textures\cubemaps\dg_cubemap.dds
+PURPLE   STAT DrV_NobleChestBack01Solid ""  missing: textures\cubemaps\dg_cubemap.dds
+PURPLE   STAT DrV_NobleFancyDivider01Mesh ""  missing: textures\cubemaps\dg_cubemap.dds
+PURPLE   STAT DrV_NobleFancyDivider01Solid ""  missing: textures\cubemaps\dg_cubemap.dds
+map only ACTI DrV_DecoNobleWardrobeCleaning01 "Wardrobe"  missing: textures\clutter\common\rug03_n.dds
+map only ACTI DrV_DecoNobleWardrobeCleaning02 "Wardrobe"  missing: textures\clutter\common\rug03_n.dds
+map only ARMA DrV_ArgentArmorAA ""  missing: textures\armor\drv_battlemage\drv_battlemage_torso_m.dds
+map only ARMA DrV_DwemerColossusAA ""  missing: textures\actors\drv_dwemercolossus\dwarvenspidercenturion_g.dds
+map only ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\indrik_n.dds
+map only ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\mounts\saddle_n.dds
+map only ARMA DrV_OrcishEliteCuirassBlueAA ""  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
+map only ARMA DrV_OrcishEliteCuirassRedAA ""  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
+map only ARMA DrV_OrcishEliteHelmetBlueAA ""  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
+map only ARMA DrV_OrcishEliteHelmetRedAA ""  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
+map only ARMO DrV_ArmorArgentArmor "Argent Spellplate"  missing: textures\armor\drv_battlemage\drv_battlemage_torso_m.dds
+map only ARMO DrV_ArmorOrcishEliteCuirassBlue "Elite Orcish Armor"  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
+map only ARMO DrV_ArmorOrcishEliteCuirassRed "Elite Orcish Armor"  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
+map only ARMO DrV_ArmorOrcishEliteHelmetBlue "Elite Orcish Helmet"  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
+map only ARMO DrV_ArmorOrcishEliteHelmetRed "Elite Orcish Helmet"  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
+map only CONT DrV_DecoNobleWardrobeCleaningContainer01 "Cabinet"  missing: textures\clutter\common\rug03_n.dds
+map only CONT DrV_DecoNobleWardrobeCleaningContainer02 "Cabinet"  missing: textures\clutter\common\rug03_n.dds
+map only CONT DrV_StrongBoxMage01 "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
+map only CONT DrV_StrongBoxMage01_Fardris "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
+map only CONT DrV_StrongBoxMage02 "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
+map only CONT DrV_StrongBoxMage02_NoRespawn "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
+map only CONT DrV_StrongBoxMage03 "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
+map only CONT DrV_StrongBoxMage03_TreasHouse "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
+map only CONT DrV_StrongBoxMage04 "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
+map only CONT DrV_StrongBoxMage04_NoRespawn "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
+map only CONT DrV_StrongBoxMage_Roggvar "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
+map only FURN DrV_CraftingRockSmelter "Smelter"  missing: textures\clutter\renthal311\stone01_n.dds
+map only FURN DrV_OutpostBedDoublePurple "Bed"  missing: textures\clutter\citybannerriften01_n.dds
+map only INGR DrV_Indrik_Loot_Feathers "Indrik Feathers"  missing: textures\actors\drv_indriks\magic\loot\loot_n.dds
+map only INGR DrV_Indrik_Loot_Sap "Indrik Ooze"  missing: textures\actors\drv_indriks\magic\loot\bowl_g.dds
+map only INGR DrV_Indrik_Loot_Sap "Indrik Ooze"  missing: textures\actors\drv_indriks\magic\loot\bowl_n.dds
+map only INGR DrV_Indrik_Loot_Sap "Indrik Ooze"  missing: textures\actors\drv_indriks\magic\loot\ectoplasm01_g.dds
+map only INGR DrV_Indrik_Loot_Sap "Indrik Ooze"  missing: textures\actors\drv_indriks\magic\loot\ectoplasm01_n.dds
+map only MISC DD_LBMQ09_MantellaFragment01 "Giant Emerald Fragment"  missing: textures\cubemaps\portalwaterfalls01_e.dds
+map only STAT DRV_ImpFreeDoor01_Highreach ""  missing: textures\kv\lordbound\highreach\kv_implroomwall01_9_n.dds
+map only STAT DRV_ImpLHall4Way01 ""  missing: textures\kv\lordbound\highreach\kv_implroomwall01_9_n.dds
+map only STAT DrV_Chapel_Highreach_LightSnow ""  missing: textures\architecture\drv_breton\hr_roofdeco_n.dds
+map only STAT DrV_DecoRugExtravagant02 ""  missing: textures\kv\kv-run2_n.dds
+map only STAT DrV_FFHouse02 ""  missing: textures\furniture\bretonlowerclass\bretonlowerclassfurniture0_n.dds
+map only STAT DrV_GKBrazierOrich01 ""  missing: textures\architecture\drv_garshakur\misc\brazier\orichalcum\gk-brazier_m.dds
+map only STAT DrV_GKBrazierOrich02 ""  missing: textures\architecture\drv_garshakur\misc\brazier\orichalcum\gk-brazier_m.dds
+map only STAT DrV_GKUpperCityGH ""  missing: textures\architecture\drv_garshakur\uppercity_gh\drv_gkgatehouse_x_window_m.dds
+map only STAT DrV_HighreachRugExtravagant ""  missing: textures\kv\kv-run2_n.dds
+map only STAT DrV_MageClutterOrb01 ""  missing: textures\clutter\darkswirls_n.dds
+map only STAT DrV_MantellaFull ""  missing: textures\cubemaps\portalwaterfalls01_e.dds
+map only STAT DrV_NobleChestBack01Solid ""  missing: textures\aaaamv\woodrough_n.dds
+map only STAT DrV_NobleFancyLectern01 ""  missing: textures\aaaamv\woodrough_n.dds
+map only STAT DrV_NobleMageNoticeBoard01 ""  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
+map only STAT DrV_NobleWashbasinCupboard ""  missing: textures\clutter\common\rug03_n.dds
+map only STAT DrV_NobleWashbasinStandTowel01 ""  missing: textures\clutter\katariahclutter01_em.dds
+map only STAT DrV_NobleWashbasinStandTowel02 ""  missing: textures\clutter\katariahclutter01_em.dds
+map only STAT DrV_OldHandCart02 ""  missing: textures\clutter\renthal311\wood\wood102402_n.dds
+map only STAT DrV_RuneFrost_Angavaar ""  missing: textures\kv\lordbound\drv_frostrune_n.dds
+map only STAT DrV_obgndcluster01a ""  missing: textures\obgate002_n.dds
+map only TREE DrV_3AM_DeadScotsPine1_Short_a_UltraHighPolyUseRarely ""  missing: textures\landscape\trees\3amtreesvurt_deadbranches_n.dds
+map only TREE DrV_DeadScotsPine3Snow ""  missing: textures\landscape\trees\vurt_coniferbranch001_n.dds
+map only TREE DrV_DeadScotsPine4Snow ""  missing: textures\landscape\trees\vurt_coniferbranch001_n.dds
+map only TREE DrV_DeadScotsPine5Snow ""  missing: textures\landscape\trees\vurt_coniferbranch001_n.dds
+map only TREE DrV_wrtempletree01snow ""  missing: textures\landscape\trees\cyrodilbark01_n.dds
+
+Copied into Lordbound Fixes from your other mods (251 files):
+textures\!_rudy_misc\effects\fxglowenb.dds  <=  Praedy's Staves AIO - SE (loose)
+textures\aars\openbook\largebookpaper02.dds  <=  Distinct Interiors (loose)
+textures\aars\openbook\largebookpaper03.dds  <=  Distinct Interiors (loose)
+textures\aars\openbook\largebookpaper04.dds  <=  Distinct Interiors (loose)
+textures\aars\openbook\largebookpaper05.dds  <=  Distinct Interiors (loose)
+textures\aars\openbook\largebookpaper10.dds  <=  Distinct Interiors (loose)
+textures\aars\openbook\largebookpaper11.dds  <=  Distinct Interiors (loose)
+textures\aars\openbook\largenote01.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\aars\openbook\largenote02.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\aars\openbook\largenote03.dds  <=  Distinct Interiors (loose)
+textures\apocnew\lensflare.dds  <=  Apocalypse - Magic of Skyrim (Apocalypse - Magic of Skyrim - Textures.bsa)
+textures\clutter\barrel_mod\barrel_mod.dds  <=  Diverse Hunter Camps 2K (loose)
+textures\clutter\barrel_mod\barrel_mod_em.dds  <=  Diverse Hunter Camps 2K (loose)
+textures\clutter\barrel_mod\barrel_mod_n.dds  <=  Diverse Hunter Camps 2K (loose)
+textures\clutter\food\meltinthemouth\cakemadeleine_choco.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\clutter\food\meltinthemouth\cakemadeleine_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\clutter\food\meltinthemouth\cakeroll03.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\clutter\food\meltinthemouth\cakeroll03_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\clutter\food\meltinthemouth\gingerman.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\clutter\food\meltinthemouth\gingerman_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\clutter\food\meltinthemouth\gingerwoman.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\clutter\food\meltinthemouth\gingerwoman_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\clutter\food\meltinthemouth\rimback.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\cubemaps\guard.dds  <=  Rudy HQ - Miscellaneous SE (loose)
+textures\dungeons\ships\shipwood01_n.dds  <=  Noble Skyrim Mod HD-2K (loose)
+textures\icebloomnightmare\gradicebloom.dds  <=  Frostbitten Dreams Magic (IceBloomNightmare.bsa)
+textures\icebloomnightmare\gradicebloomexplosion.dds  <=  Frostbitten Dreams Magic (IceBloomNightmare.bsa)
+textures\icebloomnightmare\gradicebloomexplosionpink.dds  <=  Frostbitten Dreams Magic (IceBloomNightmare.bsa)
+textures\insanity\furniture\common\towels\towel01_n.dds  <=  Distinct Interiors (loose)
+textures\lor\custom\books.xbm.(3694).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\books_n.xbm.(3695).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\books_simple.xbm.(182).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\books_simple_n.xbm.(183).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\carpets & pillow\environment#decorations#furniture#hangars#tapestrys#textures#textile_decorative_a.xbm.(69).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\carpets & pillow\environment#decorations#furniture#hangars#tapestrys#textures#textile_decorative_a_n.xbm.(70).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\carpets & pillow\environment#decorations#furniture#hangars#tapestrys#textures#textile_decorative_b_n.xbm.(545).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\carpets & pillow\kaer_morhen_triss_interior_bed.xbm.(458).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\carpets & pillow\kaer_morhen_triss_interior_pillow.xbm.(459).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\carpets & pillow\mosspillow_n.dds  <=  Distinct Interiors (loose)
+textures\lor\custom\carpets & pillow\textile_decorative_b.xbm.(544).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\carpets & pillow\textile_giant1.xbm.(94).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\carpets & pillow\textile_symbol2.xbm.(417).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\bathhouse_assets.dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\bathhouse_assets_n.dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\beer_mug.xbm.(3726).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\beer_mug_n.xbm.(3727).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\ciris_family_tree.xbm.(99).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\ciris_family_tree_n.xbm.(100).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\cradle.xbm.(217).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\cradle_n.xbm.(218).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\cradle_s.xbm.(219).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\cs_avallach_painting.xbm.(101).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\cs_avallach_painting_n.xbm.(102).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\dandelions_trophy.xbm.(666).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\dandelions_trophy_n.xbm.(667).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\emhyr_portrait.xbm.(87).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\emhyr_potrtrait_n.xbm.(88).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\forge.xbm.(180).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\forge_n.xbm.(181).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\painting_baron_anna_d.xbm.(452).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\painting_baron_anna_n.xbm.(453).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\painting_ciri_portrait_d.xbm.(75).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\painting_ciri_portrait_n.xbm.(76).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\painting_frame.xbm.(72).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\painting_frame_n.xbm.(73).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\clutter\painting_port.xbm.(74).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\container\crate_cage.xbm.(3700).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\container\crate_cage_n.xbm.(3701).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\container\dark_metal.xbm.(38).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\container\dark_metal_n.xbm.(39).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\container\sack.xbm.(1773).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\container\sack_n.xbm.(1774).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\corpses\mummified_bird_a.xbm.(353).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\corpses\mummified_bird_a_n.xbm.(356).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\corpses\mummified_bird_b.xbm.(357).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\corpses\mummified_bird_b_n.xbm.(358).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\corpses\mummified_bird_d.xbm.(363).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\corpses\mummified_bird_d_n.xbm.(366).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\corpses\t_01__cow_n01.xbm.(1910).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\corpses\t_01__deer_d01.xbm.(1913).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\corpses\t_01__deer_n01.xbm.(1914).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\corpses\t_02__cow_d01.xbm.(37).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\environment#decorations#furniture#hangars#tapestrys#textures#symbol_frame_n.xbm.(4151).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\environment#decorations#furniture#hangars#tapestrys#textures#symbol_frame_s.xbm.(68).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\furniture\baron_chair_1.xbm.(524).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\furniture\baron_chair_1_n.xbm.(525).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\kitchen\canette_hq.xbm.(514).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\kitchen\canette_hq_n.xbm.(515).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\kitchen\environment#decorations#food#fish#textures#fish_bowl.xbm.(516).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\kitchen\environment#decorations#food#fish#textures#fish_bowl_n.xbm.(517).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\kitchen\environment#decorations#food#fish#textures#fish_pile.xbm.(119).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\kitchen\environment#decorations#food#fish#textures#fish_pile_n.xbm.(120).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\kitchen\pan01_hq.xbm.(216).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\kitchen\pan01_hq_n.xbm.(217).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\kitchen\wooden_pitcher_big_hq_d01.xbm.(581).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\kitchen\wooden_pitcher_big_hq_n01.xbm.(582).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\km\bathhouse_marmor_floor.dds  <=  Distinct Interiors (loose)
+textures\lor\custom\km\bathhouse_marmor_floor_n.dds  <=  Distinct Interiors (loose)
+textures\lor\custom\km\checkered_floor.xbm.(218).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\km\checkered_floor_n.xbm.(219).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\km\floor_checkerboard_poor.xbm.(224).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\km\floor_checkerboard_poor_n.xbm.(225).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\km\tile_floor_castle.xbm.(123).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\km\tile_floor_castle_n.xbm.(124).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\painting_morgue.xbm.(454).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\painting_morgue_n.xbm.(455).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\ropes\environment#decorations#furniture#hangars#tapestrys#textures#ropeknot.xbm.(4148).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\ropes\environment#decorations#ships#basic#geralt_boat#meshes#textures#ropeknot_n.xbm.(459).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\ropes\rope.xbm.(1816).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\ropes\rope_light_n.xbm.(3760).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\signs\cameleon_inn_rich.xbm.(710).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\signs\cameleon_inn_rich_n.xbm.(711).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\signs\nowhere_inn.xbm.(526).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\signs\nowhere_inn_n.xbm.(527).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\signs\swordsmith.xbm.(530).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\signs\swordsmith_n.xbm.(531).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\various\animal_trap.xbm.(142).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\various\animal_trap_n.xbm.(143).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\various\nilfgaardian_feathers.xbm.(161).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\various\nilfgaardian_helmet.xbm.(162).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\various\nilfgaardian_helmet_n.xbm.(163).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\various\nilfgaardian_torso.xbm.(165).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\various\nilfgaardian_torso_n.xbm.(166).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\various\sq302_item__owl_feathers_n01.xbm.(5343).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\wood\barrel_skellige.xbm.(3696).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\wood\barrel_skellige_n.xbm.(3699).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\wood\boat_tileable_n.xbm.(162).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\wood\nvg_rich_wood_details.xbm.(5).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\wood\nvg_rich_wood_details_n.xbm.(6).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\wood\rich_wood_outdoor_flat_n.xbm.(8).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\wood\rich_wood_outdoor_patterns.xbm.(368).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\wood\rich_wood_outdoor_patterns_b.xbm.(369).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\wood\rich_wood_outdoor_patterns_b_n.xbm.(370).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\wood\wood_boat_old_01.xbm.(499).dds  <=  Distinct Interiors (loose)
+textures\lor\custom\wood\wood_boat_old_01_n.xbm.(500).dds  <=  Distinct Interiors (loose)
+textures\oaristys\linen\oaruinslinen_01_black.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_01_blue.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_01_green.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_01_indigo.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_01_orange.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_01_red.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_01_vanilla.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_01_violet.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_01_white.dds  <=  Distinct Interiors (loose)
+textures\oaristys\linen\oaruinslinen_01_yellow.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_02_black.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_02_blue.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_02_green.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_02_indigo.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_02_orange.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_02_red.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_02_vanilla.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_02_violet.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_02_white.dds  <=  Distinct Interiors (loose)
+textures\oaristys\linen\oaruinslinen_02_yellow.dds  <=  Enhanced Solitude SSE (Enhanced Solitude SSE.bsa)
+textures\oaristys\linen\oaruinslinen_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\misc\note.dds  <=  Palaces and Castles Enhanced SSE (Palaces Castles Enhanced - Textures.bsa)
+textures\oaristys\misc\wood.dds  <=  Palaces and Castles Enhanced SSE (Palaces Castles Enhanced - Textures.bsa)
+textures\oaristys\misc\wood_n.dds  <=  Palaces and Castles Enhanced SSE (Palaces Castles Enhanced - Textures.bsa)
+textures\oaristys\paper\folio.dds  <=  Distinct Interiors (loose)
+textures\oaristys\paper\folio_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\paper\sheet02.dds  <=  Distinct Interiors (loose)
+textures\oaristys\paper\sheet02_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\alchemy\alchcontainer.dds  <=  Mage Towers of Skyrim (Mage Towers of Skyrim.bsa)
+textures\oaristys\the witcher\alchemy\alchcontainer_n.dds  <=  Mage Towers of Skyrim (Mage Towers of Skyrim.bsa)
+textures\oaristys\the witcher\alchemy\alchdistillery01.dds  <=  Mage Towers of Skyrim (Mage Towers of Skyrim.bsa)
+textures\oaristys\the witcher\alchemy\alchdistillery01_n.dds  <=  Mage Towers of Skyrim (Mage Towers of Skyrim.bsa)
+textures\oaristys\the witcher\brick_rich.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\brick_rich_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\carvedwood_rich_b.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\carvedwood_rich_b_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\decoration\horn.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\decoration\horn_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\decoration\shell.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\decoration\shell_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\decoration\toolshanging01.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\decoration\toolshanging01_m.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\decoration\toolshanging01_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\decoration\vase.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\decoration\vase_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\food\bread.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\food\bread_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\food\fish_big.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\food\fish_big_m.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\food\fish_big_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\food\fish_hanging.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\food\fish_hanging_m.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\food\fish_hanging_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\food\meat2.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\food\meat2_m.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\food\meat2_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\food\sausages.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\food\sausages_m.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\food\sausages_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\furniture\bath03.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\furniture\bath03_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\paper\book.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\paper\book_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\paper\contract.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\paper\contract_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\plants\feteflowers.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\plants\feteflowers_background.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\plants\feteflowers_background_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\plants\feteflowers_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\plants\rose.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\plants\rose_n.dds  <=  Distinct Interiors (loose)
+textures\oaristys\the witcher\statues\gargoyle01.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\statues\gargoyle01_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\statues\statueelven.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\statues\statueelven_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\textiles\bearskin.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\textiles\bearskin_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\textiles\wolfskin.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\textiles\wolfskin_n.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\the witcher\woodrich03.dds  <=  Capital Windhelm Expansion (WindhelmSSE - Textures.bsa)
+textures\oaristys\treasures\alduin_gold.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\alduin_silver.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\flagonsilver.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\raven_gold.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\raven_n.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\raven_silver.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\ravenbase_gold.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\ravenbase_n.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\ravenbase_silver.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\silver.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\silvertrim.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\spider_gold.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\spider_silver.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\spriggan_gold.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\spriggan_silver.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\t67goldcoin.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\oaristys\treasures\t67goldcoin_n.dds  <=  Coldhaven - A Vampire City 2.3 (loose)
+textures\stroti\newcastle\ground\blocks01.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\ground\blocks01_n.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\ground\stair01.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\ground\stair01_n.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\metal\copper01_n.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\metal\rust_light.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\metal\rust_n.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\wall\border03.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\wall\border03_n.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\wall\border04.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\wall\brick04_n.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\wall\brick06.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\wall\brick06_n.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\wall\plasterwhitedirty.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\wall\plasterwhitedirty_n.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\wood\plank01.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\wood\plank01_n.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\wood\wall01.dds  <=  Beyond Reach (loose)
+textures\stroti\newcastle\wood\wall01_n.dds  <=  Beyond Reach (loose)

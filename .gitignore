@@ -1,0 +1,20 @@
+# Built patch and anything derived from Lordbound's own files: not redistributed
+*.esp
+*.esm
+*.esl
+*.pex
+*.psc
+*.bsa
+*.nif
+*.dds
+*.pkl
+dis/
+psc/
+bc/
+dec2/
+meshes/
+textures/
+scripts/
+unfilled.txt
+stageissues.txt
+__pycache__/

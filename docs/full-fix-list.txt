@@ -1,0 +1,220 @@
+LORDBOUND FIXES - FULL LIST OF CHANGES
+============================================================
+Patch: Lordbound Fixes.esp + patched scripts + copied textures/models, for Lordbound 0.8.1.
+
+1. PLUGIN FIXES (Lordbound Fixes.esp)
+------------------------------------------------------------
+ 1. Masters of Highreach: Lanelle had no reaction line if Fardris's quest (LBMQ05) was the master quest you finished first, so the talk ended and stage 2 was never set; her generic line now covers that case
+
+ 2. Fill script properties the authors declared and use but left empty in the CK (quests, scenes, triggers, NPCs); empty properties make stages, scenes and triggers silently do nothing
+
+ 3. Just Deserts: 'I had to kill him' / 'war criminal' replies required stage below 100, but killing Sergus sets stage 100, so options 2 and 3 dead-ended; now allowed up to stage 109
+
+ 4. The Lost Children: Lanelle's 'follow player to Garza' package only ran while she was inside Highreach, so she stopped following the moment you left town and the Garza scene trigger (needs both of you) never fired
+
+ 5. Wrath: Garom's two optional answers at the end had no links back to the remaining choices, so you were dropped into a '...' loop; they now offer the other questions and 'You can count on me'
+
+ 6. Kinslayer: after you spare Azgoth and pass Borgog's speech check, his reward line required stage 70 (the 'killed him' stage), so the quest never finished; the reward now also accepts the 'spared' stage 60
+
+ 7. Fill two more empty properties whose target records have slightly different names: Masters of Highreach 'LBMQ02' (Fulaz-Ahl's quest, used to tick his objective) and Tour of Duty's tracking spell (so M'zaad's tracking spell is removed afterwards)
+
+ 8. Door landing spots that were left sitting on top of the destination door: Garshakur Tailor exit (you appeared between the door and the wall) and the Putrid Cove Retreat entrance (you appeared facing the wall)
+
+ 9. Grave of the First: Fulaz-Ahl's barrier-breaking scene only removed the barrier when his 'cast Thunderbolt at the barrier marker' package finished; if it never finished he stood there 'busy' forever. The barrier is now removed when that part of the scene starts (patched scene script waits a few seconds and ends the scene if it is still hung)
+
+10. Marks of a Fighter: Luzgrath asks for 'Stonebark Ale' and skulls, but only counted the vanilla Ale (rare in the valley) and the vanilla skull, not Lordbound's Stonebark ales or its own skull item; now any Stonebark drink or Ale, and either skull, count (and get taken)
+
+11. The Lost Legion added at the end of Lordbound: the faction-epilogue quest picks a journal entry for stage 100, and the Imperial entry's only condition (The Lost Legion at stage 270) was flagged OR with nothing after it, which leaves that entry's test open-ended; the stray OR flag is removed
+
+12. Chasing Dreams: the 'Find 3 Brainrot Mushrooms (x/3)' and 'Find 3 Nightshade (x/3)' objectives showed '[...]/3' because their counter globals were never added to the quest's Text Display Globals list
+
+13. Models that point at files Lordbound never shipped (red '!' in game), repointed to an existing model: Ashlorn rib-cap pieces (4 placed), a blue crystal in Ysgramor's Folly (typo'd path), a Highrock Stop roof, Aedron's armor spaulders on women, the Barbarian Orcish cuirass in first person, and the Liquor of Rooting bottle
+
+14. Enigmatic Origins: the Jagged Crown on the skeleton atop the throne in the Revenant's version of Highreach was a real, lootable crown placed as loose loot; it is now a static decoration with the same model
+
+2. PATCHED SCRIPTS (scripts\ folder)
+------------------------------------------------------------
+- dd_lbmq09questscript.pex
+    Sins of the Father: remember the player's SpeedMult when you become Lanrick and restore any amount lost when you change back
+- dd__qf_dd_lbmq09_0105bc20.pex
+    Sins of the Father: stage 260 also removes both flashback speed debuffs before you change back (in case stage 253 was skipped)
+- dd__qf_dd_impmq09a_010407d4.pex
+    The Sacking of Garshakur: Faaram Marvani is flagged essential on his base record, so 'Defeat Faaram Marvani' (stage 190) could never be completed; the stage now makes him mortal
+- dd__sf_dd_lbmq02fulazwyrmsban_0105c5d1.pex
+    Grave of the First: barrier fragment now runs at the start of the casting phase, waits 6 s for Fulaz's spell, removes the barrier, then ends the scene if it is still stuck 4 s later
+- dd__qf_dd_orcnq01_0107fcd1.pex
+    Marks of a Fighter: stage 40 takes 1 drink and 12 skulls from the new lists (any Stonebark drink or Ale; vanilla or Lordbound skull) instead of only the vanilla items
+
+3. SCRIPT PROPERTIES FILLED, GROUPED BY QUEST
+------------------------------------------------------------
+Each line: record type, record, (where it is), then the properties that were empty and are now filled.
+
+[(no in-game name) - DD_DialogueGarshakur]
+   INFO 050677C4: DD_FoodJagga
+
+[(no in-game name) - DD_LBMQ10RevenantBossQuest]
+   ACHR DD_LBMQ10RevenantREF in DRVEmpyreanVaultUpper03 "Empyrean Vault Dungeon Depths": DD_LBMQ10RevenantBossQuest, Druadach, drv_AMBRevenantWeatherWind2DLP, DD_LBMQ10RevenantTeleportFXActivator, DD_AbUndyingRevenant
+
+[(no in-game name) - DLW_Dialogue_HighreachMarket]
+   INFO 0509F2D0: DrV_ArmorOrcishEliteCuirassBlue
+
+[A Sealed Fate - DD_LBMQ07]
+   ACTI DD_SkylockGateBlocker: DD_LBMQ07, DD_SkylockGate
+   ACTI DrV_EmpyreanKillTrigger: DD_LBMQ07
+
+[A Shadow of Doubt - DD_OS02]
+   QUST DD_OS02: DD_OS02TornSoulREF01, DD_OS02WayfarerPrisonerReturnToOreholdMarker01
+
+[A Wild Hunt - DD_LBMQ03]
+   ACTI DD_LBMQ03ObjectiveToggle: DD_LBMQ03
+
+[Ash and Blood - DD_OrcMQ10]
+   QUST DD_OrcMQ10: DD_OrcMQ10GarzaBranchScene02OrcMarker01
+
+[Blissful Ignorance - DD_LBMQ07Orb]
+   REFR 05021C5E in DrVBtharZelCore "Bthar-Zel Core": MarkerFalmerEnable
+
+[Chasing Dreams - DD_LBMQ05]
+   ACTI DD_LBMQ05MemoryInteractions: DD_LBMQ05, DD_LBMQ05RarauchScene
+   REFR MemoryActivator (open world): DD_LBMQ05RarauchScene
+   REFR MemoryActivator002 in drvNightmare04 "The Buried Abnegation": DD_LBMQ05RarauchScene
+
+[Enigmatic Origins - DD_LBMQ06a]
+   REFR 050326A7 (open world): DrV_RevenantHighreachMarker, DD_LBMQ06a
+   REFR 050326AC (open world): DrV_RevenantHighreachMarker
+   REFR 0509E180 (open world): DrV_RevenantHighreachMarker, DD_LBMQ06a
+
+[Fallen Hearts - DD_LBMQ06]
+   REFR 0508A569 in DrVOrefellSmithDestroyed "Orefell Smith": DD_LBMQ06OrefellBattle
+   REFR 0508A791 in DRVOrefellHouse01BasementDestroyed "Carolyne's Basement": DD_LBMQ06OrefellBattle
+
+[Frontier Justice - DD_ImpMQ07A]
+   SCEN DD_ImpMQ07AMayorIntroScene01: DD_ImpMQ07aMercenarySceneMoveMarker
+
+[Grave of the First - DD_LBMQ02]
+   ACTI DD_LBMQ02GateTrigger: DD_LBMQ02
+   QUST DD_LBMQ02: DD_LBMQ02BossDeathFinal
+
+[Ill Omens - DD_ImpMQ03]
+   ACHR DD_ImpMQ03RevenantBossREF (open world): DD_OrcMQ02, DD_LBMQ06a, DD_LBMQ10NightmareMemoryFXBody01VFX, RevenantHoldingCellMarker, Druadach, drv_AMBRevenantWeatherWind2DLP, DD_LBMQ10RevenantTeleportFXActivator
+   QUST DD_ImpMQ03: DD_ImpMQ03ScoutScene01
+
+[Lordbound - DD_LBMQ10]
+   ACTI DD_LBMQ10PlaceOrbTrigger: DD_LBMQ10
+   REFR 05000A0F in DRVEmpyreanVaultThalmorBossRoom "Empyrean Vault Catacombs": DD_LBMQ10
+   REFR 05000A12 in DRVEmpyreanVaultDepths06 "Forgotten Cells": DD_LBMQ10
+
+[Monuments of Sin - DD_LBMQ06b]
+   ACHR 0503202C (open world): DD_OrcMQ02, DD_LBMQ06a, DD_LBMQ10NightmareMemoryFXBody01VFX, RevenantHoldingCellMarker, Druadach, drv_AMBRevenantWeatherWind2DLP, DD_LBMQ10RevenantTeleportFXActivator
+   ACTI DD_LBMQ06BoneTotemActivator: DD_LBMQ06b
+   NPC_ DD_UndyingRevenant: DD_LBMQ10NightmareMemoryFXBody01VFX, DD_LBMQ10RevenantTeleportFXActivator
+   QUST DD_LBMQ06b: DD_LBMQ06
+
+[Oathbreaker - DD_OrcMQ08]
+   QUST DD_OrcMQ08: DD_OrcMQ08GardaleFinaleBorgogMarker01
+   REFR DD_OrcMQ08SiegeCatapult01 (open world): DD_OrcMQ08CatapultMessage, DD_OrcMQ08
+   REFR DD_OrcMQ08SiegeCatapult02 (open world): DD_OrcMQ08CatapultMessage, DD_OrcMQ08
+   REFR DD_OrcMQ08SiegeCatapult03 (open world): DD_OrcMQ08CatapultMessage, DD_OrcMQ08
+   REFR DD_OrcMQ08SiegeCatapultTrigger01 (open world): DD_OrcMQ08
+   REFR DD_OrcMQ08SiegeCatapultTrigger02 (open world): DD_OrcMQ08
+   REFR DD_OrcMQ08SiegeCatapultTrigger03 (open world): DD_OrcMQ08
+
+[Sins of the Father - DD_LBMQ09]
+   ACTI DD_LBMQ09DefaultDisablePlayerControlsTrigger: DD_LBMQ09
+   QUST DD_LBMQ09: DD_LBMQ09GhostVoiceMarker01, DD_LBMQ09GhostVoiceMarker02
+
+[Skooma Stash - DD_WE01]
+   CONT DD_WE01SkoomaChest: DD_WE01
+
+[Taking Malgorath - DD_ImpMQ08a]
+   QUST DD_ImpMQ08a: DD_ImpMQ08aGarzaPrematureBattleScene01, DD_ImpMQ08aGarzaArenaChallengeScene01
+
+[The Empyrean Vault - DD_LBMQ08]
+   REFR 0504F0F0 in DRVEmpyreanVaultLobby "Empyrean Vault": DD_Qorwynn
+
+[The Lost Children - DD_OrcMQ05]
+   REFR DD_OrcMQ05CastMagicTrigger (open world): DD_OrcMQ05
+
+[The Sacking of Garshakur - DD_ImpMQ09A]
+   QUST DD_ImpMQ09A: DD_ImpMQ09GarshakurStockadeBlockadeEnabler01, Keep_Frontdoor001, Keep_Backdoor001
+
+[Tour of Duty - DD_ImpMQ01]
+   INFO 0508A4DB: DD_ImpMQ01TaskEnabler
+   QUST DD_ImpMQ01: DD_ImpMQ01HuntsmanTaskBowEnabler01
+
+[Vault's Vigil - DD_ImpMQ06]
+   ACHR DD_ImpMQ06RevenantRef in DrVEmpyreanAnnex "Skylock Citadel": DD_OrcMQ02, DD_LBMQ06a, RevenantHoldingCellMarker, Druadach, drv_AMBRevenantWeatherWind2DLP
+   ACHR DD_LBMQ06RevenantRef (open world): DD_OrcMQ02, DD_LBMQ06a, RevenantHoldingCellMarker, Druadach, drv_AMBRevenantWeatherWind2DLP
+
+[(no quest - general objects)]
+   ACHR 0505BA33 in drvFrostfordKeep01 "Frostford Keep": DD_FrozenHuskAbility
+   ACHR 0505BA3A in drvFrostfordKeep01 "Frostford Keep": DD_FrozenHuskAbility
+   ACHR 0505BA3B in drvFrostfordKeep01 "Frostford Keep": DD_FrozenHuskAbility
+   ACHR 0505BA3C in drvFrostfordKeep01 "Frostford Keep": DD_FrozenHuskAbility
+   ACHR 0505BA3E in drvFrostfordKeep01 "Frostford Keep": DD_FrozenHuskAbility
+   ACHR 0505BA40 in drvFrostfordKeep01 "Frostford Keep": DD_FrozenHuskAbility
+   ACHR 0505BA41 in drvFrostfordKeep01 "Frostford Keep": DD_FrozenHuskAbility
+   ACHR 0505BA9D in drvFrostfordKeep02 "Frostford Dungeons": DD_FrozenHuskAbility
+   ACHR 0505BAA2 in drvFrostfordKeep02 "Frostford Dungeons": DD_FrozenHuskAbility
+   ACHR 0505BAA3 in drvFrostfordKeep02 "Frostford Dungeons": DD_FrozenHuskAbility
+   ACHR 0505BAA4 in drvFrostfordKeep02 "Frostford Dungeons": DD_FrozenHuskAbility
+   ACHR 0505BAA9 in drvFrostfordKeep02 "Frostford Dungeons": DD_FrozenHuskAbility
+   ACHR 0505BAAA in drvFrostfordKeep02 "Frostford Dungeons": DD_FrozenHuskAbility
+   ACHR 0505BAAC in drvFrostfordKeep02 "Frostford Dungeons": DD_FrozenHuskAbility
+   ACHR 0505BAB1 in drvFrostfordKeep02 "Frostford Dungeons": DD_FrozenHuskAbility
+   ACHR 0505BAB2 in drvFrostfordKeep02 "Frostford Dungeons": DD_FrozenHuskAbility
+   ACHR 0505BAB3 in drvFrostfordKeep02 "Frostford Dungeons": DD_FrozenHuskAbility
+   ACHR 0505BABA in drvFrostfordKeep02 "Frostford Dungeons": DD_FrozenHuskAbility
+   ACHR 0505BABB in drvFrostfordKeep02 "Frostford Dungeons": DD_FrozenHuskAbility
+   ACHR 0505BB8C (open world): DD_FrozenHuskAbility
+   ACHR 0505BB8D (open world): DD_FrozenHuskAbility
+   ACHR 0505BB93 (open world): DD_FrozenHuskAbility
+   ACHR 0505BB98 (open world): DD_FrozenHuskAbility
+   ACHR 0505BB99 (open world): DD_FrozenHuskAbility
+   ACHR 0505BB9A (open world): DD_FrozenHuskAbility
+   ACHR 0505BB9B (open world): DD_FrozenHuskAbility
+   ACHR 0505BB9C (open world): DD_FrozenHuskAbility
+   ACHR 0505BB9D (open world): DD_FrozenHuskAbility
+   ACHR 0505BB9E (open world): DD_FrozenHuskAbility
+   ACHR 0505BB9F (open world): DD_FrozenHuskAbility
+   ACHR 0505BBA1 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBA6 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBA7 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBAA (open world): DD_FrozenHuskAbility
+   ACHR 0505BBAB (open world): DD_FrozenHuskAbility
+   ACHR 0505BBAD in FrostfordCrater01 "": DD_FrozenHuskAbility
+   ACHR 0505BBAE in FrostfordCrater01 "": DD_FrozenHuskAbility
+   ACHR 0505BBAF (open world): DD_FrozenHuskAbility
+   ACHR 0505BBB0 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBB1 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBB2 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBB3 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBB4 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBB5 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBB6 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBB7 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBB8 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBBA (open world): DD_FrozenHuskAbility
+   ACHR 0505BBBB (open world): DD_FrozenHuskAbility
+   ACHR 0505BBBC in FrostfordCentre01 "": DD_FrozenHuskAbility
+   ACHR 0505BBBE (open world): DD_FrozenHuskAbility
+   ACHR 0505BBBF (open world): DD_FrozenHuskAbility
+   ACHR 0505BBC0 (open world): DD_FrozenHuskAbility
+   ACHR 0505BBC5 (open world): DD_FrozenHuskAbility
+   ACHR 0506DEF4 in DRVGardaleMine "Gardale Mine": DD_ImpMQ01TrackerEnabler16
+   ACHR 0507AA53 in DRVEmpyreanVaultNightmare02 "The Warp of Prophecy": DD_LBMQ10NightmareMemoryFXBody01VFX
+   ACHR DD_LBMQ10GortwogREF in DRVEmpyreanVaultNightmare02 "The Warp of Prophecy": DD_LBMQ10NightmareMemoryFXBody01VFX
+   ACTI DD_LBMQ07BtharZelCore: DD_LBMQ07Orb
+   MGEF drv_AbFXRevenant: DD_LBMQ10NightmareMemoryFXBody01VFX
+
+Also filled by hand (names did not match exactly):
+   [The Masters of Highreach - DD_LBMQ01] QUST DD_LBMQ01: LBMQ02 -> DD_LBMQ02 (Fulaz-Ahl's quest)
+   [Tour of Duty - DD_ImpMQ01] QUST DD_ImpMQ01: DD_ImpMQ01InterrogatorTrackerSpell -> M'zaad's Spell of Tracking
+
+4. FILES COPIED FROM YOUR OTHER MO2 MODS
+------------------------------------------------------------
+251 textures and 3 models (full list with source mods in "Lordbound Fixes - missing textures.txt"):
+   meshes\apocnew\restorationpeace_art_wildhealing.nif <= Apocalypse - Magic of Skyrim
+   meshes\apocnew\restorationpeace_hands.nif <= Apocalypse - Magic of Skyrim
+   meshes\landscape\grass\waterkelptall03.nif <= Depths of Skyrim - An Underwater Overhaul SSE
+
