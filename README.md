@@ -10,7 +10,9 @@ This repository holds the **documentation and the tools** used to find and build
 
 - **143 empty script properties** filled. The authors declared and used them in scripts but never filled them in the Creation Kit, so stages, scenes and triggers silently did nothing (Ill Omens, the Empyrean Vault Catacombs stall, Grave of the First, Monuments of Sin, Enigmatic Origins and more).
 - Quest dead-ends: The Masters of Highreach, Just Deserts, The Lost Children, Kinslayer, Wrath, The Sacking of Garshakur, Marks of a Fighter, Chasing Dreams counters, The Lost Legion appearing at the end.
-- Wrong door landing spots, missing models, a lootable decoration.
+- Wrong door landing spots, missing models, a lootable decoration, dev test-room spell tomes with broken effects.
+- **No purple textures left**: missing textures found under the wrong name or folder in Lordbound itself, fixed name typos against the base game, and matched the rest from other mods (UVs checked where a texture was reused on a different model).
+- All 3,045 of Lordbound's old-format (LE) meshes converted to SE with SSE NIF Optimizer and checked.
 
 Full details:
 
@@ -36,6 +38,7 @@ Plain Python 3 (no third-party packages except `lz4` for SE archives). They read
 | `scanprops.py` → `autofill.py` | Finds script properties that are used but never filled, and matches them to records |
 | `scanstages.py` / `scandeadend.py` | Finds dialogue that needs a quest stage nothing sets, and replies that can never be chosen |
 | `fixes.py` / `scriptfixes.py` | The fixes themselves (plugin records / script bytecode) |
+| `dlscan3.py` / `report.py` | Searches downloaded archives (7z/zip/rar, including BSAs inside them) for missing textures and models; regenerates the missing-textures report |
 | `build.py` / `verify.py` | Builds `Lordbound Fixes.esp` and checks its structure |
 | `dec/Dec.java` | Batch decompiler using ReSaver's `ReSaver.jar` |
 

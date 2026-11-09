@@ -32,6 +32,8 @@ Patch: Lordbound Fixes.esp + patched scripts + copied textures/models, for Lordb
 
 14. Enigmatic Origins: the Jagged Crown on the skeleton atop the throne in the Revenant's version of Highreach was a real, lootable crown placed as loose loot; it is now a static decoration with the same model
 
+15. Removed the three spell tomes (Golden Sparks, Disintegrate the Undead, Fierce Flames) from the developers' 'Core Team Armoury' test room: those spells' effects use textures Lordbound never shipped (purple effects); the tome references are now initially disabled
+
 2. PATCHED SCRIPTS (scripts\ folder)
 ------------------------------------------------------------
 - dd_lbmq09questscript.pex
@@ -218,3 +220,19 @@ Also filled by hand (names did not match exactly):
    meshes\apocnew\restorationpeace_hands.nif <= Apocalypse - Magic of Skyrim
    meshes\landscape\grass\waterkelptall03.nif <= Depths of Skyrim - An Underwater Overhaul SSE
 
+5. TEXTURES AND MESHES FROM DOWNLOADS, THE BASE GAME AND LORDBOUND ITSELF
+------------------------------------------------------------
+293 textures and 10 models (each with its source in "Lordbound Fixes - detailed changes.txt", section 6).
+Highlights:
+   Revenant area explosion: gradgreenbright.dds <= Lordbound's own drv_gradgreenbright.dds (mesh dropped the prefix)
+   Split the Mind unsummon: drvc_gradgreenbright.dds <= Lordbound's own drv_gradgreenbright.dds
+   Restoration mass explosion: gradturnundead.dds <= base game gradturnundedge.dds (name typo)
+   Cyrodiilic Silver Shortsword scabbard (+_n, _m) <= Lordbound's steelshortsword02scb (same scabbard model, UVs identical)
+   Gold Ash Pile: drvc_gradgolddisguiseshader01.dds <= base game graddisguiseshader01.dds (stand-in; gold version never shipped)
+   Fierce Flames swirl: poisionswirls3.dds <= base game poisonswirls3.dds (name typo)
+Result: nothing in Lordbound shows purple any more; 15 detail maps and 26 models are still missing.
+
+6. MESH CONVERSION
+------------------------------------------------------------
+All 3,045 of Lordbound's old-format (LE) meshes converted with SSE NIF Optimizer into the "Lordbound Meshes SE" mod folder,
+plus the 10 LE meshes in Lordbound Fixes; all checked as SE format afterwards.

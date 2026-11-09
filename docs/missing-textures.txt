@@ -1,25 +1,9 @@
 Textures that Lordbound meshes ask for but that are in neither Lordbound, the base game/DLC, your MO2 mods, nor your Downloads.
 Only objects Lordbound actually uses are listed. A missing main texture shows purple; a missing _n/_m/_g/_e map only makes it look flatter.
 
-PURPLE   ACTI DRVC_DefaultAshPileGold "Gold Ash Pile"  missing: textures\effects\gradients\drvc_gradgolddisguiseshader01.dds
-PURPLE   ALCH DRV_StonebarkAttractiveAleBrew "Stonebark Attractive Ale"  missing: textures\clutter\drv_stonebark\drv_beastmodebrew_alpha.dds
-PURPLE   ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\extras\indrikgloam.dds
-PURPLE   ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\mounts\saddlegloam.dds
-PURPLE   EXPL DD_RevenantAreaExplosion ""  missing: textures\effects\gradients\gradgreenbright.dds
-PURPLE   EXPL DRVC_RestorationMassExplosion ""  missing: textures\effects\gradients\gradturnundead.dds
-PURPLE   MISC DrV_BearDruadachPelt "Druadach Bear Pelt"  missing: textures\actors\bear\bear_sk_polar.dds
-PURPLE   PROJ DRVC_FireConMassiveAim ""  missing: textures\effects\poisionswirls3.dds
-PURPLE   STAT DD_LBMQ10EmpyreanOrb_Blue_Static ""  missing: textures\clutter\empyreanorbs\sigilstone_iceblue.dds
-PURPLE   STAT DrV_DecoWoodenPole ""  missing: textures\eeks whiterun interiors\stroti\wood.dds
-PURPLE   STAT DrV_NobleChestBack01Mesh ""  missing: textures\cubemaps\dg_cubemap.dds
-PURPLE   STAT DrV_NobleChestBack01Solid ""  missing: textures\cubemaps\dg_cubemap.dds
-PURPLE   STAT DrV_NobleFancyDivider01Mesh ""  missing: textures\cubemaps\dg_cubemap.dds
-PURPLE   STAT DrV_NobleFancyDivider01Solid ""  missing: textures\cubemaps\dg_cubemap.dds
 map only ACTI DrV_DecoNobleWardrobeCleaning01 "Wardrobe"  missing: textures\clutter\common\rug03_n.dds
 map only ACTI DrV_DecoNobleWardrobeCleaning02 "Wardrobe"  missing: textures\clutter\common\rug03_n.dds
 map only ARMA DrV_ArgentArmorAA ""  missing: textures\armor\drv_battlemage\drv_battlemage_torso_m.dds
-map only ARMA DrV_DwemerColossusAA ""  missing: textures\actors\drv_dwemercolossus\dwarvenspidercenturion_g.dds
-map only ARMA DrV_IndrikMountNakedRideable ""  missing: textures\actors\drv_indriks\mounts\saddle_n.dds
 map only ARMA DrV_OrcishEliteCuirassBlueAA ""  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
 map only ARMA DrV_OrcishEliteCuirassRedAA ""  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
 map only ARMA DrV_OrcishEliteHelmetBlueAA ""  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
@@ -31,48 +15,26 @@ map only ARMO DrV_ArmorOrcishEliteHelmetBlue "Elite Orcish Helmet"  missing: tex
 map only ARMO DrV_ArmorOrcishEliteHelmetRed "Elite Orcish Helmet"  missing: textures\armor\drv_orcishelite\drv_orcarmortrimred_n.dds
 map only CONT DrV_DecoNobleWardrobeCleaningContainer01 "Cabinet"  missing: textures\clutter\common\rug03_n.dds
 map only CONT DrV_DecoNobleWardrobeCleaningContainer02 "Cabinet"  missing: textures\clutter\common\rug03_n.dds
-map only CONT DrV_StrongBoxMage01 "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
-map only CONT DrV_StrongBoxMage01_Fardris "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
-map only CONT DrV_StrongBoxMage02 "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
-map only CONT DrV_StrongBoxMage02_NoRespawn "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
-map only CONT DrV_StrongBoxMage03 "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
-map only CONT DrV_StrongBoxMage03_TreasHouse "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
-map only CONT DrV_StrongBoxMage04 "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
-map only CONT DrV_StrongBoxMage04_NoRespawn "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
-map only CONT DrV_StrongBoxMage_Roggvar "Keepsake Box"  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
 map only FURN DrV_CraftingRockSmelter "Smelter"  missing: textures\clutter\renthal311\stone01_n.dds
 map only FURN DrV_OutpostBedDoublePurple "Bed"  missing: textures\clutter\citybannerriften01_n.dds
-map only MISC DD_LBMQ09_MantellaFragment01 "Giant Emerald Fragment"  missing: textures\cubemaps\portalwaterfalls01_e.dds
 map only STAT DRV_ImpFreeDoor01_Highreach ""  missing: textures\kv\lordbound\highreach\kv_implroomwall01_9_n.dds
 map only STAT DRV_ImpLHall4Way01 ""  missing: textures\kv\lordbound\highreach\kv_implroomwall01_9_n.dds
 map only STAT DrV_Chapel_Highreach_LightSnow ""  missing: textures\architecture\drv_breton\hr_roofdeco_n.dds
 map only STAT DrV_DecoRugExtravagant02 ""  missing: textures\kv\kv-run2_n.dds
-map only STAT DrV_FFHouse02 ""  missing: textures\furniture\bretonlowerclass\bretonlowerclassfurniture0_n.dds
-map only STAT DrV_GKBrazierOrich01 ""  missing: textures\architecture\drv_garshakur\misc\brazier\orichalcum\gk-brazier_m.dds
-map only STAT DrV_GKBrazierOrich02 ""  missing: textures\architecture\drv_garshakur\misc\brazier\orichalcum\gk-brazier_m.dds
 map only STAT DrV_GKUpperCityGH ""  missing: textures\architecture\drv_garshakur\uppercity_gh\drv_gkgatehouse_x_window_m.dds
 map only STAT DrV_HighreachRugExtravagant ""  missing: textures\kv\kv-run2_n.dds
-map only STAT DrV_MageClutterOrb01 ""  missing: textures\clutter\darkswirls_n.dds
-map only STAT DrV_MantellaFull ""  missing: textures\cubemaps\portalwaterfalls01_e.dds
-map only STAT DrV_NobleChestBack01Solid ""  missing: textures\aaaamv\woodrough_n.dds
-map only STAT DrV_NobleFancyLectern01 ""  missing: textures\aaaamv\woodrough_n.dds
-map only STAT DrV_NobleMageNoticeBoard01 ""  missing: textures\furniture\obs\obs_noblefurnchest01a_n.dds
 map only STAT DrV_NobleWashbasinCupboard ""  missing: textures\clutter\common\rug03_n.dds
 map only STAT DrV_NobleWashbasinStandTowel01 ""  missing: textures\clutter\katariahclutter01_em.dds
 map only STAT DrV_NobleWashbasinStandTowel02 ""  missing: textures\clutter\katariahclutter01_em.dds
 map only STAT DrV_OldHandCart02 ""  missing: textures\clutter\renthal311\wood\wood102402_n.dds
 map only STAT DrV_RuneFrost_Angavaar ""  missing: textures\kv\lordbound\drv_frostrune_n.dds
-map only STAT DrV_obgndcluster01a ""  missing: textures\obgate002_n.dds
 map only TREE DrV_3AM_DeadScotsPine1_Short_a_UltraHighPolyUseRarely ""  missing: textures\landscape\trees\3amtreesvurt_deadbranches_n.dds
 map only TREE DrV_DeadScotsPine3Snow ""  missing: textures\landscape\trees\vurt_coniferbranch001_n.dds
 map only TREE DrV_DeadScotsPine4Snow ""  missing: textures\landscape\trees\vurt_coniferbranch001_n.dds
 map only TREE DrV_DeadScotsPine5Snow ""  missing: textures\landscape\trees\vurt_coniferbranch001_n.dds
 map only TREE DrV_wrtempletree01snow ""  missing: textures\landscape\trees\cyrodilbark01_n.dds
 
-Models still missing everywhere (30):
-   meshes\actors\drv_empyreanskeleton\akaviri-skeleton-1.nif
-   meshes\actors\drv_indriks\magic\fire\fx.nif
-   meshes\actors\drv_indriks\magic\frost\explosionfrost01.nif
+Models still missing everywhere (26):
    meshes\actors\drv_spriggancorrupted\drv_spriggancorrupted.nif
    meshes\architecture\drv_breton_highreach\sblacksmith1gkb.nif
    meshes\architecture\drv_breton_highreach\sblacksmith2gkb.nif
@@ -96,7 +58,6 @@ Models still missing everywhere (30):
    meshes\clutter\drv_stonebark\drv_beastmodebrew03.nif
    meshes\clutter\soulgem\meshes\clutter\soulgem\soulgemgreater01.nif
    meshes\effects\dd_lbmq10empyreanbarrier.nif
-   meshes\landscape\grass\reachbush01.nif
    meshes\landscape\trees\oldpineforest07vu1.nif
    meshes\shadertests\algaeshader.nif
    meshes\weapons\boundweapons\drv_revenantswordencheffectsshadow.nif
@@ -357,21 +318,29 @@ textures\stroti\newcastle\wood\plank01_n.dds  <=  Beyond Reach (loose)
 textures\stroti\newcastle\wood\wall01.dds  <=  Beyond Reach (loose)
 textures\stroti\newcastle\wood\wall01_n.dds  <=  Beyond Reach (loose)
 
-Copied into Lordbound Fixes from archives in C:\Users\tony.TONYCUBED\Downloads (170 files):
+Copied into Lordbound Fixes from C:\Users\tony.TONYCUBED\Downloads, the base game or Lordbound itself (303 files):
+meshes\actors\drv_empyreanskeleton\akaviri-skeleton-1.nif  <=  Lordbound's own meshes\kv\lordbound\akaviri-skeleton-1.nif (loose) (same file name; the model points at the wrong folder)
+meshes\actors\drv_indriks\magic\fire\fx.nif  <=  Summonable Indrik Mounts (se-ae)-116526-1-1712922274 (Meshes/mihail monsters and animals/Boar/Indrik/MAGIC/fire/fx.nif; same model, Lordbound moved the folder)
+meshes\actors\drv_indriks\magic\frost\explosionfrost01.nif  <=  Summonable Indrik Mounts (se-ae)-116526-1-1712922274 (Meshes/mihail monsters and animals/Boar/Indrik/MAGIC/frost/explosionfrost01.nif; same model, Lordbound moved the folder)
 meshes\armor_replacer\orc\1stpersonarmorberserklightf_1.nif  <=  NordWarUA's Race Armor Expansion - CCOR-34585-1-0-1590311754.7z
 meshes\armor_replacer\orc\1stpersonarmorberserklightm_1.nif  <=  NordWarUA's Race Armor Expansion - CCOR-34585-1-0-1590311754.7z
 meshes\elvar\weapons\third era\cyrodiil\silver\1stpersondagger.nif  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
 meshes\elvar\weapons\third era\cyrodiil\silver\1stpersonshortsword.nif  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
 meshes\elvar\weapons\third era\cyrodiil\silver\dagger.nif  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
 meshes\elvar\weapons\third era\cyrodiil\silver\shortsword.nif  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
+meshes\landscape\grass\reachbush01.nif  <=  base game meshes\landscape\plants\reachbush01.nif (Skyrim - Meshes1.bsa) (same file name; the model points at the wrong folder)
+textures\aaaamv\woodrough_n.dds  <=  Lordbound's own textures\aaaamv\furniture\woodrough_n.dds (Druadach - Textures.bsa) (same file name; the model points at the wrong folder)
 textures\aars\openbook\largebookpaper06.dds  <=  Lakeview Manor Evolution - Source Files-41645-1-0.zip
 textures\aars\openbook\largebookpaper07.dds  <=  Lakeview Manor Evolution - Source Files-41645-1-0.zip
 textures\aars\openbook\largebookpaper08.dds  <=  Lakeview Manor Evolution - Source Files-41645-1-0.zip
 textures\aars\openbook\largebookpaper09.dds  <=  Lakeview Manor Evolution - Source Files-41645-1-0.zip
 textures\aars\openbook\largebookpaper12.dds  <=  Lakeview Manor Evolution - Source Files-41645-1-0.zip
 textures\aars\openbook\largebookpaper13.dds  <=  Lakeview Manor Evolution - Source Files-41645-1-0.zip
+textures\actors\bear\bear_sk_polar.dds  <=  base game textures\actors\bear\bear_sk_orange.dds (Skyrim - Textures0.bsa): the fur-sheen tint the vanilla polar bear pelt uses; not in Bellyaches Animal and Creature Pack
+textures\actors\drv_dwemercolossus\dwarvenspidercenturion_g.dds  <=  base game textures\actors\dwarvenspidercenturion\dwarvenspidercenturion_g.dds (Skyrim - Textures1.bsa) (same file name; the model points at the wrong folder)
 textures\actors\drv_indriks\extras\frostatronachinner.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/extras/frostatronachinner.dds)
 textures\actors\drv_indriks\extras\icecavesubsurfacetint02.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/extras/icecavesubsurfacetint02.dds)
+textures\actors\drv_indriks\extras\indrikgloam.dds  <=  Summonable Indrik Mounts (se-ae)-116526-1-1712922274 (Textures/mihail monsters and animals/Boar/Indrik/extras/indrikdusk.dds; stand-in: "Dusk" coat (gloam = dusk); Lordbound's own Gloam coat was never shipped)
 textures\actors\drv_indriks\extras\indrikiceyellow.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/extras/indrikiceyellow.dds)
 textures\actors\drv_indriks\indrik.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/indrik.dds)
 textures\actors\drv_indriks\indrik_n.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/indrik_n.dds)
@@ -384,17 +353,135 @@ textures\actors\drv_indriks\magic\loot\ectoplasm01_n.dds  <=  Indriks (se-ae) 1.
 textures\actors\drv_indriks\magic\loot\loot.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/magic/loot/loot.dds)
 textures\actors\drv_indriks\magic\loot\loot_n.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/magic/loot/loot_n.dds)
 textures\actors\drv_indriks\magic\patronum\indrik.dds  <=  Indriks (se-ae) 1.3-53640-1-3-1717642773.rar (renamed from Indriks (SE)/Data/Textures/mihail monsters and animals/Boar/Indrik/magic/patronum/indrik.dds)
+textures\actors\drv_indriks\mounts\saddle_n.dds  <=  Summonable Indrik Mounts (se-ae)-116526-1-1712922274 (Textures/mihail monsters and animals/Boar/Indrik/NEW/saddle_n.dds; same file the original mounts use)
+textures\actors\drv_indriks\mounts\saddlegloam.dds  <=  Summonable Indrik Mounts (se-ae)-116526-1-1712922274 (Textures/mihail monsters and animals/Boar/Indrik/NEW/saddledusk.dds; stand-in: "Dusk" saddle to match)
+textures\architecture\drv_garshakur\misc\brazier\orichalcum\gk-brazier_m.dds  <=  Lordbound's own textures\architecture\drv_garshakur\misc\brazier\gk-brazier_m.dds (Druadach - Textures.bsa) (same file name; the model points at the wrong folder)
+textures\architecture\farmhouse\stonewall\farmfencestone.dds  <=  Lordbound's own textures\architecture\drv_frostford\farmfencestone.dds (Druadach - Textures.bsa) (same file name; the model points at the wrong folder)
+textures\architecture\farmhouse\stonewall\farmfencestone_n.dds  <=  Lordbound's own textures\architecture\drv_frostford\farmfencestone_n.dds (Druadach - Textures.bsa) (same file name; the model points at the wrong folder)
+textures\architecture\farmhouse\stonewall\farmfencestone_p.dds  <=  Lordbound's own textures\architecture\drv_frostford\farmfencestone_p.dds (Druadach - Textures.bsa) (same file name; the model points at the wrong folder)
+textures\architecture\farmhouse\stonewall\farmfencewood.dds  <=  Lordbound's own textures\architecture\drv_frostford\farmfencewood.dds (Druadach - Textures.bsa) (same file name; the model points at the wrong folder)
+textures\architecture\farmhouse\stonewall\farmfencewood_n.dds  <=  Lordbound's own textures\architecture\drv_frostford\farmfencewood_n.dds (Druadach - Textures.bsa) (same file name; the model points at the wrong folder)
+textures\architecture\stonewall\stonewall02.dds  <=  base game textures\architecture\farmhouse\stonewall02.dds (Skyrim - Textures1.bsa) (same file name; the model points at the wrong folder)
+textures\architecture\stonewall\stonewall02_n.dds  <=  base game textures\architecture\farmhouse\stonewall02_n.dds (Skyrim - Textures1.bsa) (same file name; the model points at the wrong folder)
+textures\armor\orcish\orc_armor_female_helmet_m.dds  <=  Lordbound's own textures\armor_replacer\orc\orc_armor_female_helmet_m.dds (Druadach0 - Textures.bsa) (same file name; the model points at the wrong folder)
 textures\clutter\bretonvase\vase.dds  <=  Breton Vases-82985-1-0.zip
 textures\clutter\bretonvase\vase2.dds  <=  Breton Vases-82985-1-0.zip
 textures\clutter\bretonvase\vase_n.dds  <=  Breton Vases-82985-1-0.zip
+textures\clutter\darkswirls_n.dds  <=  base game textures\effects\darkswirls_n.dds (Skyrim - Textures5.bsa) (same file name; the model points at the wrong folder)
+textures\clutter\drv_stonebark\drv_beastmodebrew_alpha.dds  <=  Lordbound's own textures\clutter\drv_stonebark\drv_beastmodebrew_environment.dds (Druadach0 - Textures.bsa): the sister brew model (Cider of Blind Rage) uses this file in the same slot (environment mask)
+textures\clutter\empyreanorbs\sigilstone_iceblue.dds  <=  Lordbound's own textures\clutter\drv_empyreanorbs\sigilstone_iceblue.dds (Druadach0 - Textures.bsa) (same file name; the model points at the wrong folder)
+textures\clutter\food\meltinthemouth\shinyglass_e.dds  <=  Lordbound's own textures\cubemaps\insanity\shinyglass_e.dds (Druadach0 - Textures.bsa) (same file name; the model points at the wrong folder)
 textures\clutter\kelretu\flowerpot\flower01.dds  <=  Flower Pack 01-82985-1-0-1623497723.zip
 textures\clutter\kelretu\flowerpot\flower01_n.dds  <=  Flower Pack 01-82985-1-0-1623497723.zip
 textures\clutter\kelretu\flowerpot\pot01.dds  <=  Flower Pack 01-82985-1-0-1623497723.zip
 textures\clutter\kelretu\flowerpot\pot01_n.dds  <=  Flower Pack 01-82985-1-0-1623497723.zip
+textures\cubemaps\dg_cubemap.dds  <=  SMIM Quality Addon 1.5-44388 (data\textures\cubemaps\dg_cubemap.dds, exact path)
+textures\cubemaps\portalwaterfalls01_e.dds  <=  base game textures\dlc01\cubemaps\portalwaterfalls01_e.dds (Skyrim - Textures4.bsa) (same file name; the model points at the wrong folder)
+textures\eek\misc items\towel_for_crate.dds  <=  Lordbound's own textures\eek\towel_for_crate.dds (Druadach0 - Textures.bsa) (same file name; the model points at the wrong folder)
+textures\eeks whiterun interiors\ax\canvaslc0101_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\discovery1\reachgrassobj01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\discovery1\reachgrassobj02.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\dragten\1dr_ban_leatherdark.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\dragten\1dr_ban_leatherred.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\aadrpaintrec_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\arcadiasign02.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\arcadiasign02_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\belethor painting.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\dragonstongue01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\dragonstongue01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\dragonstongue02.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\dwemetalbars01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\dwemetalbars01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_apolight_01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_apolight_01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_belethorsbed.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_belethorsbed_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_bluemf_dt_1k.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_bluemf_dt_1k_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_farengardrawing.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_purplemf_dt_1k.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_purplemf_dt_1k_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_redmf_dt_1k.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_redmf_dt_1k_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_wrmarket_painting_01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_yellowmf_dt_1k.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_yellowmf_dt_1k_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\eek_ysoldapainting01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\frameuc0303.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\frameuc0303_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\naildecal.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\naildecal_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\nightshade01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\nightshade01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\nightshade02.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\nightshade02_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\noblewood02.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\noblewood02_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\shinycontrastflames_e.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\snowberry01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\snowberry01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\swordfern01-02.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\swordfern01-02_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\towel_for_crate.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\towel_for_crate_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\vinemaple02.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\vinemaple02_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\wrtrims01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\wrtrims01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\wrwoodbeam01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\wrwoodbeam01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\wrwoodplanks04.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\eek\wrwoodplanks04_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\elianora\basket01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\elianora\bluegreenbasket.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\elianora\blueishbasket.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\elianora\greenishbasket.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\elianora\pinkbasket.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\elianora\redbasket.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\elinen_sparrowprince\espbogbean02leaves.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\elinen_sparrowprince\espcolumbine01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\jokerines\jokbasket_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\jokerines\jokbasketgreenorange.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\jokerines\jokbasketgreenred.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\jokerines\jokbasketredpink.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\jokerines\jokbasketslate.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\lucidap\apple1.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\lucidap\apple1_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\lucidap\apple2.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\lucidaps\apple1.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\lucidaps\apple1_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\lucidaps\apple2.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\pm\eek_fabric_gold_white.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\pm\pm_fabric_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\renthal311\shovel02.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\renthal311\shovel02_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\renthal\dragonstongue01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\renthal\dragonstongue01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\renthal\dragonstongue02.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\renthal\nightshade01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\renthal\nightshade01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\renthal\nightshade02.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\renthal\nightshade02_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\renthal\swordfern01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\renthal\swordfern01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\smim\metalwork01_gray.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\smim\metalwork01_gray_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\stroti\iron01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\stroti\iron01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\stroti\oldiron01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\stroti\oldiron01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\stroti\wood.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\stroti\woodpostdark01.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\eeks whiterun interiors\stroti\woodpostdark01_n.dds  <=  1. EEKs Whiterun Interiors SSE-10463-1-4.rar
+textures\effects\gradients\drvc_gradgolddisguiseshader01.dds  <=  vanilla Skyrim - Textures5.bsa (graddisguiseshader01.dds; stand-in, the gold recolour was never shipped)
+textures\effects\gradients\drvc_gradgreenbright.dds  <=  Lordbound Druadach0 - Textures.bsa (drv_gradgreenbright.dds; EFSH DRVC_SplitTheMindUnsummon prefix typo)
+textures\effects\gradients\gradgreenbright.dds  <=  Lordbound Druadach0 - Textures.bsa (drv_gradgreenbright.dds; mesh dropped the drv_ prefix)
+textures\effects\gradients\gradturnundead.dds  <=  vanilla Skyrim - Textures5.bsa (gradturnundedge.dds; name typo, vanilla turn-undead meshes use gradturnundedge)
 textures\effects\gradients\summonnature.dds  <=  Guardian Spectres (SE-AE) 1.2-30772-1-2-1671828296.rar
 textures\effects\gradients\summonnaturebright.dds  <=  Guardian Spectres (SE-AE) 1.2-30772-1-2-1671828296.rar
 textures\effects\gradients\summonundeadnirn.dds  <=  Guardian Spectres (SE-AE) 1.2-30772-1-2-1671828296.rar
 textures\effects\gradients\summonundeadnirnbright.dds  <=  Guardian Spectres (SE-AE) 1.2-30772-1-2-1671828296.rar
+textures\effects\poisionswirls3.dds  <=  base game textures\effects\poisonswirls3.dds (Skyrim - Textures5.bsa): Lordbound's model misspells "poison" as "poision"
 textures\elvar\weapons\third era\cyrodiil\silver\silverdagger_d.dds  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
 textures\elvar\weapons\third era\cyrodiil\silver\silverdagger_m.dds  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
 textures\elvar\weapons\third era\cyrodiil\silver\silverdagger_n.dds  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
@@ -402,9 +489,15 @@ textures\elvar\weapons\third era\cyrodiil\silver\silvershortsword_d.dds  <=  Lor
 textures\elvar\weapons\third era\cyrodiil\silver\silvershortsword_m.dds  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
 textures\elvar\weapons\third era\cyrodiil\silver\silvershortsword_n.dds  <=  Lore Weapon Expansion-44179-1-4a.7z (Lore Weapon Expansion.bsa)
 textures\estroyaresources\magesigil.dds  <=  Furniture Pack-89291-1-0.zip
+textures\furniture\bretonlowerclass\bretonlowerclassfurniture0_n.dds  <=  Lordbound's own textures\architecture\drv_frostford\bretonlowerclassfurniture0_n.dds (Druadach - Textures.bsa) (same file name; the model points at the wrong folder)
 textures\furniture\bretonroyal\bretonroyal01.dds  <=  Breton Royal Furniture 02-82985-1-1-1709385918.zip
 textures\furniture\bretonroyal\bretonroyal01_em.dds  <=  Breton Royal Furniture 02-82985-1-1-1709385918.zip
 textures\furniture\bretonroyal\bretonroyal01_n.dds  <=  Breton Royal Furniture 02-82985-1-1-1709385918.zip
+textures\furniture\obs\obs_noblefurnchest01a_n.dds  <=  base game textures\furniture\noble\noblefurnchest01_n.dds (Skyrim - Textures5.bsa), the normal map that matches the chest texture these models use
+textures\insanity\clutter\misc\fabric_n.dds  <=  Lordbound's own textures\insanity\clutter\common\clothes\fabric_n.dds (Druadach1 - Textures.bsa) (same file name; the model points at the wrong folder)
+textures\insanity\weapons\third era\cyrodiil\steel\scabbard.dds  <=  Lordbound Druadach1 - Textures.bsa (textures\insanity\weapons\third era\cyrodiil\steel\steelshortsword02scb.dds; same scabbard model, UVs verified identical)
+textures\insanity\weapons\third era\cyrodiil\steel\scabbard_m.dds  <=  Lordbound Druadach1 - Textures.bsa (textures\insanity\weapons\third era\cyrodiil\steel\steelshortsword02scb_m.dds; same scabbard model, UVs verified identical)
+textures\insanity\weapons\third era\cyrodiil\steel\scabbard_n.dds  <=  Lordbound Druadach1 - Textures.bsa (textures\insanity\weapons\third era\cyrodiil\steel\steelshortsword02scb_n.dds; same scabbard model, UVs verified identical)
 textures\lor\custom\bnw\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_a.xbm.(647).dds  <=  Lor Modders' Resource-84433-1-0.rar
 textures\lor\custom\bnw\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_a_n.xbm.(648).dds  <=  Lor Modders' Resource-84433-1-0.rar
 textures\lor\custom\bnw\dlc#bob#data#environment#decorations#gameplay#rich_district#textures#prp_rich_carvedwood_b.xbm.(649).dds  <=  Lor Modders' Resource-84433-1-0.rar
@@ -528,3 +621,4 @@ textures\oaristys\paper\sheet02b.dds  <=  Modder's Resource Pack - CORE-16525-3-
 textures\oaristys\paper\sheet02b_n.dds  <=  Modder's Resource Pack - CORE-16525-3-2.7z
 textures\oaristys\paper\sheet02c.dds  <=  Modder's Resource Pack - CORE-16525-3-2.7z
 textures\oaristys\paper\sheet02c_n.dds  <=  Modder's Resource Pack - CORE-16525-3-2.7z
+textures\obgate002_n.dds  <=  Oblivion Gates Remade (00 - [Required] Main Files/Oblivion Gates Remade.bsa), normal map paired with the identical obgate002.dds Lordbound uses

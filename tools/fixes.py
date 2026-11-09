@@ -201,3 +201,9 @@ def f_jagged_crown(out):
     r=P.byfid[0x05032ED1]; subs=subs_of(out,r)
     subs=[(t,struct.pack('<I',STATFID) if t=='NAME' else v) for t,v in subs]
     out.override(r,subs)
+
+@fix("Removed the three spell tomes (Golden Sparks, Disintegrate the Undead, Fierce Flames) from the developers' 'Core Team Armoury' test room: those spells' effects use textures Lordbound never shipped (purple effects); the tome references are now initially disabled")
+def f_remove_tomes(out):
+    for fid in (0x050902C9,0x0508DCD7,0x050960C0):
+        r=P.byfid[fid]; prev=out.ov.get(fid)
+        out.override(r,prev[1] if prev else None,flags=r.flags|0x800)

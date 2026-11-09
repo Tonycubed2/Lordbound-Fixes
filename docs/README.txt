@@ -1,11 +1,14 @@
 LORDBOUND FIXES  -  personal patch for Lordbound 0.8.1 (Nexus 160493)
 =====================================================================
 Files: Lordbound Fixes.esp (ESL-flagged, master: Druadach.esm), 5 patched scripts in scripts\,
-and 251 textures copied from your other MO2 mods + 164 from your Downloads archives into textures\.
+544 textures in textures\ (251 from your other MO2 mods, the rest from your Downloads archives, the
+base game, or Lordbound's own files under the name its meshes ask for), and 13 SE-format meshes in meshes\.
+A second folder, "Lordbound Meshes SE", holds Lordbound's 3,045 old-format (LE) meshes converted to SE.
 The _work folder is my analysis workspace. The game ignores it; leave it or hide it in MO2.
 
 INSTALL
-1. In MO2, tick "Lordbound Fixes" in the left pane, placed BELOW "Lordbound" (so its scripts win).
+1. In MO2, tick "Lordbound Meshes SE" and "Lordbound Fixes" in the left pane, both placed BELOW
+   "Lordbound" (so their files win). "Lordbound Fixes LE meshes" was only a work folder: delete it.
 2. In the right pane (Plugins), tick "Lordbound Fixes.esp" and make sure it loads after Druadach.esm.
 3. Best results on a character that has not started these quests yet. Fixes to script properties
    and quest scripts only take hold for quests that start after the patch is installed.
@@ -50,7 +53,20 @@ WHAT IS FIXED (cause found in the data before changing anything)
   first-person model and the Cyrodiilic Silver dagger and shortsword).
 - Enigmatic Origins: the Jagged Crown on the throne skeleton in the Revenant's Highreach was real
   loose loot; it is now a static decoration with the same model.
+- Removed the Golden Sparks, Disintegrate the Undead and Fierce Flames spell tomes from the
+  developers' Core Team Armoury test room (their effects use textures Lordbound never shipped).
 - Door landing spots: Garshakur Tailor exit and Putrid Cove Retreat entrance.
+- Purple effects and weapons, all now textured:
+  * Revenant area explosion: its mesh asks for gradgreenbright.dds but Lordbound ships it as
+    drv_gradgreenbright.dds; copied under the name the mesh uses (same for the Split the Mind
+    unsummon effect, which asks for drvc_gradgreenbright.dds).
+  * Restoration mass explosion: typo gradturnundead.dds for the base game's gradturnundedge.dds.
+  * Cyrodiilic Silver Shortsword scabbard: same model as Lordbound's Insanity Cyrodiil steel
+    shortsword scabbard (UVs checked identical), so that sword's scabbard textures are used.
+  * Gold Ash Pile: the gold gradient was never shipped; the base game's ash-pile gradient is used
+    as a stand-in (fade-in glow may be ash-coloured rather than gold).
+- Old-format (LE) meshes: all of Lordbound's 3,045 LE meshes and the 10 copied in here were run
+  through SSE NIF Optimizer and checked: every one is now SE format.
 
 TEST POINTS (each fix is unverified until you play through it)
 - Masters of Highreach: talk to Lanelle after finishing Fardris's quest first.
@@ -72,7 +88,8 @@ Checked with the base game files (Data folder):
   after installing SSE Engine Fixes. Nothing to patch here.
 - Lanelle's dagger: it reuses a vanilla dagger model (the one Skyrim.esm uses for DA02Dagger) and its textures exist in the base
   game. Purple there means a texture mod in that player's setup, not a Lordbound bug.
-- Missing textures: see "Lordbound Fixes - missing textures.txt" (31 objects would show purple).
+- Missing textures: see "Lordbound Fixes - missing textures.txt". Nothing shows purple any more;
+  15 detail maps (normal/specular) are still missing, which only makes those surfaces look flatter.
 Checked but not fixable from the data alone:
 - Imperial soldiers looking dark in Oathbreaker: they wear vanilla Imperial armor and their face
   files are all present; nothing broken in the data. Send a screenshot if you see it.
@@ -86,8 +103,7 @@ Checked but not fixable from the data alone:
   quarters door, and the Fort Rustagov marker: I can't see room geometry from the data, so I can't
   tell which landing spot is wrong. When it happens, open the console, click the door you came
   through, and send me the ID shown at the top (then type tcl to get out).
-- 36 models still missing everywhere (mostly unused records; the Cyrodiilic Silver weapons need a
-  mod Lordbound didn't include).
+- 26 models still missing everywhere (mostly unused records).
 - Dialogue dead-end scan: found 6 places where a reply needs a stage the quest cannot be at yet.
   One was Kinslayer (fixed). The other 5: three are dead extra options next to a working one (Chasing
   Dreams "Care to explain", A Thousand Knives "I challenge you to a duel", Raven's Bluff scout
@@ -113,4 +129,4 @@ Needs the Creation Kit (I give steps when you get there):
   into the void, Highreach gate black plane, Mauloch floor gaps.
 - The Carver: all three training options use his one class skill (needs separate trainer setups).
 Needs a Windows tool:
-- LOD: regenerate with DynDOLOD. Meshes: run Lordbound's meshes through SSE NIF Optimizer / CAO.
+- LOD: regenerate with DynDOLOD.
