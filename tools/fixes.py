@@ -207,3 +207,13 @@ def f_remove_tomes(out):
     for fid in (0x050902C9,0x0508DCD7,0x050960C0):
         r=P.byfid[fid]; prev=out.ov.get(fid)
         out.override(r,prev[1] if prev else None,flags=r.flags|0x800)
+
+@fix("The Trial Road / getting back into the valley: the Mor Khazgur Passage gate is a key-only lock that Mogus's scene unlocks once (stage 30), but the tunnel cell resets, which relocks the gate and leaves you shut out of (or into) the Druadach Valley; the gate now carries the base game's defaultUnlockOnLoad script (DD_OrcIntro, stage 30), so it unlocks itself every time it loads once that stage is done")
+def f_khazgur_gate(out):
+    r=P.byfid[0x0509984C]; subs=subs_of(out,r)
+    assert not any(t=='VMAD' for t,v in subs)
+    vm=struct.pack('<HHH',5,2,1)+vmadw.ws('defaultUnlockOnLoad')+bytes([0])+struct.pack('<H',2)
+    vm+=vmadw.objprop('myQuest',0x0505C571)
+    vm+=vmadw.ws('unlockStage')+bytes([3,1])+struct.pack('<i',30)
+    i=[t for t,v in subs].index('EDID')+1
+    subs.insert(i,('VMAD',vm)); out.override(r,subs)

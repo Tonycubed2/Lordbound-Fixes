@@ -2,13 +2,14 @@ LORDBOUND FIXES  -  personal patch for Lordbound 0.8.1 (Nexus 160493)
 =====================================================================
 Files: Lordbound Fixes.esp (ESL-flagged, master: Druadach.esm), 5 patched scripts in scripts\,
 544 textures in textures\ (251 from your other MO2 mods, the rest from your Downloads archives, the
-base game, or Lordbound's own files under the name its meshes ask for), and 13 SE-format meshes in meshes\.
-A second folder, "Lordbound Meshes SE", holds Lordbound's 3,045 old-format (LE) meshes converted to SE.
+base game, or Lordbound's own files under the name its meshes ask for), and 3,058 SE-format meshes in meshes\ (Lordbound's 3,045 old-format LE meshes converted to SE, plus 13
+models Lordbound was missing).
 The _work folder is my analysis workspace. The game ignores it; leave it or hide it in MO2.
 
 INSTALL
-1. In MO2, tick "Lordbound Meshes SE" and "Lordbound Fixes" in the left pane, both placed BELOW
-   "Lordbound" (so their files win). "Lordbound Fixes LE meshes" was only a work folder: delete it.
+1. In MO2, tick "Lordbound Fixes" in the left pane, placed BELOW "Lordbound" (so its files win).
+   "Lordbound Meshes SE" is now merged into Lordbound Fixes and "Lordbound Fixes LE meshes" was only a
+   work folder: delete both.
 2. In the right pane (Plugins), tick "Lordbound Fixes.esp" and make sure it loads after Druadach.esm.
 3. Best results on a character that has not started these quests yet. Fixes to script properties
    and quest scripts only take hold for quests that start after the patch is installed.
@@ -56,6 +57,10 @@ WHAT IS FIXED (cause found in the data before changing anything)
 - Removed the Golden Sparks, Disintegrate the Undead and Fierce Flames spell tomes from the
   developers' Core Team Armoury test room (their effects use textures Lordbound never shipped).
 - Door landing spots: Garshakur Tailor exit and Putrid Cove Retreat entrance.
+- Getting back into the valley: the Mor Khazgur Passage gate needs Mogus's key. His scene unlocks it
+  once, but the tunnel resets after about 10 days away, which relocked it and shut you out. The gate
+  now uses the base game's defaultUnlockOnLoad script: once The Trial Road stage 30 is done, it
+  unlocks itself whenever it loads.
 - Purple effects and weapons, all now textured:
   * Revenant area explosion: its mesh asks for gradgreenbright.dds but Lordbound ships it as
     drv_gradgreenbright.dds; copied under the name the mesh uses (same for the Split the Mind
@@ -79,6 +84,7 @@ TEST POINTS (each fix is unverified until you play through it)
 - Grave of the First: Fulaz-Ahl should break the barrier and stop being busy.
 - Marks of a Fighter: bring 12 skulls, a Stonebark drink and a Mammoth Snout; Luzgrath should accept.
 - Chasing Dreams: the mushroom/nightshade objectives should show real counts.
+- Mor Khazgur Passage gate: after The Trial Road, stay away 10+ days, come back; the gate should open.
 
 STILL ON THE LIST (not fixed yet)
 Checked with the base game files (Data folder):
@@ -112,9 +118,6 @@ Checked but not fixable from the data alone:
 - Map-open freeze: compared the 6 freezing interiors against the rest (size, markers, lights,
   scale, broken positions). Nothing sets them apart. Next time it happens, have The Watcher running
   and send me its log plus the cell name.
-- Getting back into the valley: the Mor Khazgur Passage gate starts locked (needs Mogus's key) and
-  Mogus has no dialogue once The Trial Road ends. Picking up that key again restarts the quest
-  (its script sets stage 30). Workaround: open console, click the gate, type unlock.
 - Raven's Bluff Falx marker and A Shadow of a Doubt marker: the quest data points at the right
   people; needs your save to see why the marker drops.
 Needs your game to reproduce (I found the setup, but the cause needs a live save):

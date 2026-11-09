@@ -9,7 +9,7 @@ This repository holds the **documentation and the tools** used to find and build
 21 reported bugs fixed, 5 ruled out as not Lordbound bugs. Highlights:
 
 - **143 empty script properties** filled. The authors declared and used them in scripts but never filled them in the Creation Kit, so stages, scenes and triggers silently did nothing (Ill Omens, the Empyrean Vault Catacombs stall, Grave of the First, Monuments of Sin, Enigmatic Origins and more).
-- Quest dead-ends: The Masters of Highreach, Just Deserts, The Lost Children, Kinslayer, Wrath, The Sacking of Garshakur, Marks of a Fighter, Chasing Dreams counters, The Lost Legion appearing at the end.
+- Quest dead-ends: The Masters of Highreach, the Mor Khazgur gate relocking you out of the valley, Just Deserts, The Lost Children, Kinslayer, Wrath, The Sacking of Garshakur, Marks of a Fighter, Chasing Dreams counters, The Lost Legion appearing at the end.
 - Wrong door landing spots, missing models, a lootable decoration, dev test-room spell tomes with broken effects.
 - **No purple textures left**: missing textures found under the wrong name or folder in Lordbound itself, fixed name typos against the base game, and matched the rest from other mods (UVs checked where a texture was reused on a different model).
 - All 3,045 of Lordbound's old-format (LE) meshes converted to SE with SSE NIF Optimizer and checked.

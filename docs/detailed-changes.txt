@@ -92,6 +92,10 @@ tick Lordbound Fixes.esp and load it after Druadach.esm.
    Records changed (set Initially Disabled): REFR 050902C9 (Spell Tome: Disintegrate the Undead), REFR 0508DCD7 (Spell Tome: Golden Sparks),
    REFR 050960C0 (Spell Tome: Fierce Flames), all in cell DRVArms "Core Team Armoury" (only reachable with coc). The spells themselves are unchanged.
 
+16. The Trial Road / getting back into the valley: the Mor Khazgur Passage gate is a key-only lock that Mogus's scene unlocks once (stage 30), but the tunnel cell resets, which relocks the gate and leaves you shut out of (or into) the Druadach Valley; the gate now carries the base game's defaultUnlockOnLoad script (DD_OrcIntro, stage 30), so it unlocks itself every time it loads once that stage is done
+   Record changed: REFR 0509984C DD_OrcIntroTunnelGateREF in DrVMorKhazgurTunnel "Mor Khazgur Passage": added script defaultUnlockOnLoad
+   (base game) with myQuest = DD_OrcIntro [QUST 0505C571] "The Trial Road", unlockStage = 30.
+
 2. PATCHED SCRIPTS
 ------------------------------------------------------------------------
 F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd_lbmq09questscript.pex
@@ -574,7 +578,8 @@ F:\SkyrimSEMOModfolder\Lordbound Fixes\scripts\dd__qf_dd_orcnq01_0107fcd1.pex
    Copied from F:\SkyrimSEMOModfolder\Lordbound\meshes\...  to  F:\SkyrimSEMOModfolder\Lordbound Meshes SE\meshes\...
    and run through SSE NIF Optimizer. Checked afterwards: all 3,045 are SE format (NIF user version 100).
    The 10 LE meshes copied into Lordbound Fixes\meshes (section 6) were converted the same way and copied back;
-   all 13 meshes in Lordbound Fixes are SE format. Enable "Lordbound Meshes SE" below Lordbound.
+   all 13 meshes in Lordbound Fixes are SE format. Lordbound Meshes SE was then merged into Lordbound Fixes\meshes
+   (no file names overlapped), so Lordbound Fixes now holds all 3,058 meshes.
 
 6. FILES COPIED FROM C:\Users\tony.TONYCUBED\Downloads (OR THE BASE GAME / LORDBOUND ITSELF) INTO F:\SkyrimSEMOModfolder\Lordbound Fixes
 ------------------------------------------------------------------------

@@ -34,6 +34,8 @@ Patch: Lordbound Fixes.esp + patched scripts + copied textures/models, for Lordb
 
 15. Removed the three spell tomes (Golden Sparks, Disintegrate the Undead, Fierce Flames) from the developers' 'Core Team Armoury' test room: those spells' effects use textures Lordbound never shipped (purple effects); the tome references are now initially disabled
 
+16. The Trial Road / getting back into the valley: the Mor Khazgur Passage gate is a key-only lock that Mogus's scene unlocks once (stage 30), but the tunnel cell resets, which relocks the gate and leaves you shut out of (or into) the Druadach Valley; the gate now carries the base game's defaultUnlockOnLoad script (DD_OrcIntro, stage 30), so it unlocks itself every time it loads once that stage is done
+
 2. PATCHED SCRIPTS (scripts\ folder)
 ------------------------------------------------------------
 - dd_lbmq09questscript.pex
@@ -234,5 +236,5 @@ Result: nothing in Lordbound shows purple any more; 15 detail maps and 26 models
 
 6. MESH CONVERSION
 ------------------------------------------------------------
-All 3,045 of Lordbound's old-format (LE) meshes converted with SSE NIF Optimizer into the "Lordbound Meshes SE" mod folder,
-plus the 10 LE meshes in Lordbound Fixes; all checked as SE format afterwards.
+All 3,045 of Lordbound's old-format (LE) meshes converted with SSE NIF Optimizer, plus the 10 LE meshes in
+Lordbound Fixes; all checked as SE format afterwards and merged into Lordbound Fixes\meshes (3,058 meshes).
